@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: rob_description
+    relative_path: urdf/spider_assembly_urdf.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/rob_description.srdf
+  CONFIG:
+    author_name: aya
+    author_email: ayasponselem@gmail.com
+    generated_timestamp: 1736469913

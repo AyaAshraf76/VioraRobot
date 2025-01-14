@@ -1,0 +1,8 @@
+prefix=/home/lenovo36/project_ws/install
+
+Name: pavlov_mini_lidar
+Description: Description of pavlov_mini_lidar
+Version: 1.4.6
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

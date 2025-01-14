@@ -1,0 +1,12 @@
+
+  <link name="dummy_root">
+  <!-- No inertia, purely structural -->
+  </link>
+
+<!-- Fixed joint connecting dummy_root to base_link -->
+  <joint name="dummy_to_base" type="fixed">
+    <parent link="dummy_root" />
+    <child link="base_link" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+  

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="world" default="worlds/empty.world"/>
+
+  <param name="robot_description" textfile="$(find rob_description)/urdf/spider_assembly_urdf.urdf" />
+    <!-- <param name="robot_description" command="$(find xacro)/xacro $(find rob_description)/urdf/robot_arm_urdf_v2.xacro" />  -->
+
+  <arg name="rviz_config_file" default="$(find rob_description)/config/robot.rviz"/>
+  
+
+  <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher">
+    <param name="use_gui" value="True"/>
+  </node>
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+  </node>
+
+  <node pkg="rviz" type="rviz" name="rviz" args= "-d $(arg rviz_config_file)">
+  </node>
+
+   <node
+    name="fake_joint_calibration"
+    pkg="rostopic"
+    type="rostopic"
+    args="pub /calibrated std_msgs/Bool true" />
+  
+</launch>

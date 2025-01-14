@@ -1,0 +1,8 @@
+prefix=/home/lenovo36/project_ws/devel
+
+Name: pavlov_mini_msgs
+Description: Description of pavlov_mini_msgs
+Version: 0.0.0
+Cflags: -I/home/lenovo36/project_ws/devel/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime

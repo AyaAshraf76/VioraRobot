@@ -1,0 +1,8 @@
+prefix=/home/lenovo36/project_ws/devel
+
+Name: pavlov_mini_description
+Description: Description of pavlov_mini_description
+Version: 0.0.1
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

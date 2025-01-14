@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="rob_description">
+
+
+  <xacro:include filename="$(find rob_description)/urdf/rob_plugins.gazebo"/>
+
+  <link name="world">
+  </link>
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-0.124197625058597 0.00274367991498083 0.0281247468294785" rpy="0 0 0" />
+      <mass value="0.656438115996678" />
+      <inertia ixx="0.003895075898173" ixy="1.5258603889919E-06" ixz="3.39817859970206E-07" iyy="0.00143454936579521" iyz="2.55052553619738E-08" izz="0.00473222212000206" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rob_description/meshes/base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rob_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="base_joint" type="fixed">
+    <parent link="world" />
+    <child link="base_link" />
+    <origin xyz="0 0 0" rpy="0 0 0.17" />
+  </joint>
+  <link name="wheel1_link">
+    <inertial>
+      <origin xyz="-0.126628947427152 0.126863211060582 0.0253644175398844" rpy="0 0 0" />
+      <mass value="0.16694564800894" />
+      <inertia ixx="6.72962951133883E-05" ixy="3.10993716638919E-12" ixz="-6.54064729646988E-10" iyy="0.000113206411587749" iyz="-7.85055532052009E-13" izz="6.72927975785051E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rob_description/meshes/wheel1_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rob_description/meshes/wheel1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wheel1_joint" type="continuous">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="wheel1_link" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <link name="wheel2_link">
+    <inertial>
+      <origin xyz="-0.132356573868759 -0.11924947645602 0.0145209236650498" rpy="0 0 0" />
+      <mass value="0.166945648038275" />
+      <inertia ixx="6.72949006017537E-05" ixy="-2.58989716971125E-12" ixz="-1.83316111335869E-09" iyy="0.000113206411597899" iyz="1.83613688313118E-12" izz="6.7294192100336E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rob_description/meshes/wheel2_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rob_description/meshes/wheel2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wheel2_joint" type="continuous">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="wheel2_link" />
+    <axis xyz="0 -1 0" />
+  </joint>
+  <link name="robot_arm_base_link">
+    <inertial>
+      <origin xyz="-0.0841097706227864 0.00296000015195315 0.0798982076492734" rpy="0 0 0" />
+      <mass value="0.0938941939628838" />
+      <inertia ixx="0.000113937919229159" ixy="1.97717554016392E-13" ixz="-1.35515920698352E-06" iyy="0.000124247629168402" iyz="1.90758304235409E-13" izz="0.00019754870409629" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rob_description/meshes/robot_arm_base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rob_description/meshes/robot_arm_base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="robot_arm_base_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="robot_arm_base_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="waist_link">
+    <inertial>
+      <origin xyz="0.000490534598058534 0.00704050001251394 0.0194229347811711" rpy="0 0 0" />
+      <mass value="0.0897213187915502" />
+      <inertia ixx="6.69870835095452E-05" ixy="7.17073610799377E-07" ixz="-5.53858118213932E-07" iyy="7.7222881300376E-05" iyz="-7.9486360872497E-06" izz="7.06954475493964E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rob_description/meshes/waist_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rob_description/meshes/waist_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="waist_joint" type="revolute">
+    <origin xyz="-0.085 0.00296 0.1075" rpy="0 0 0" />
+    <parent link="robot_arm_base_link" />
+    <child link="waist_link" />
+    <axis xyz="0 0 1" />
+    <limit lower="0" upper="3.14" effort="50" velocity="10" />
+  </joint>
+  <link name="shoulder_link">
+    <inertial>
+      <origin xyz="-0.0475584553075368 0.0516585411294978 0.0030088093884187" rpy="0 0 0" />
+      <mass value="0.137970306984549" />
+      <inertia ixx="0.000239851106526361" ixy="0.000189808220305717" ixz="-1.33685834192359E-05" iyy="0.00020481238441309" iyz="1.32282307592766E-05" izz="0.000430722001612285" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rob_description/meshes/shoulder_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rob_description/meshes/shoulder_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="shoulder_joint" type="revolute">
+    <origin xyz="-0.00010428 -0.0014964 0.04355" rpy="1.5708 0 0" />
+    <parent link="waist_link" />
+    <child link="shoulder_link" />
+    <axis xyz="0.069519 0 -0.99758" />
+    <limit lower="-1" upper="2" effort="50" velocity="10" />
+  </joint>
+  <link name="elbow_link">
+    <inertial>
+      <origin xyz="-0.0276454769847446 0.0155096589335578 0.00637856049678223" rpy="0 0 0" />
+      <mass value="0.080334498653636" />
+      <inertia ixx="4.11810091327579E-05" ixy="3.55247130545039E-05" ixz="7.08648095039748E-07" iyy="8.45958491486384E-05" iyz="-4.06302383515936E-07" izz="0.000117226203963148" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rob_description/meshes/elbow_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0 0 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rob_description/meshes/elbow_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="elbow_joint" type="revolute">
+    <origin xyz="-0.093675 0.10332 -0.014748" rpy="3.1416 0.069576 3.1416" />
+    <parent link="shoulder_link" />
+    <child link="elbow_link" />
+    <axis xyz="0 0 1" />
+    <limit lower="-4" upper="-0.86" effort="50" velocity="10" />
+  </joint>
+  <link name="wrist_link">
+    <inertial>
+      <origin xyz="-0.00118309122262411 -0.0039364200615125 0.0184467141282572" rpy="0 0 0" />
+      <mass value="0.0204563504008736" />
+      <inertia ixx="5.17811686973616E-06" ixy="2.73998953034205E-07" ixz="1.25534139399487E-07" iyy="5.991730933685E-06" iyz="3.69182185409196E-07" izz="2.96023551391771E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rob_description/meshes/wrist_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.556862745098039 0.556862745098039 0.556862745098039 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rob_description/meshes/wrist_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wrist_joint" type="revolute">
+    <origin xyz="-0.093394 0.047079 0.0069506" rpy="1.5708 -0.14227 -2.0789" />
+    <parent link="elbow_link" />
+    <child link="wrist_link" />
+    <axis xyz="0 0 1" />
+    <limit lower="0" upper="3.14" effort="50" velocity="10" />
+  </joint>
+  <link name="wrist_pitch_link">
+    <inertial>
+      <origin xyz="0.0253677593994059 0.00456975373870733 -0.00566701138303571" rpy="0 0 0" />
+      <mass value="0.015575939699384" />
+      <inertia ixx="2.51203801898339E-06" ixy="-8.65315111089629E-07" ixz="3.2221304729184E-07" iyy="6.15671574351459E-06" iyz="-2.74443403729919E-07" izz="5.04194532284168E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rob_description/meshes/wrist_pitch_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rob_description/meshes/wrist_pitch_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wrist_pitch_joint" type="revolute">
+    <origin xyz="-0.0064657 -0.020871 0.0284" rpy="1.4466 -1.0584 0" />
+    <parent link="wrist_link" />
+    <child link="wrist_pitch_link" />
+    <axis xyz="0 0 1" />
+    <limit lower="0.4" upper="2.74" effort="50" velocity="10" />
+  </joint>
+  <link name="gripper_link">
+    <inertial>
+      <origin xyz="-0.00709208819990396 -0.00162259086123567 -0.00225628206764517" rpy="0 0 0" />
+      <mass value="0.00282448997070331" />
+      <inertia ixx="1.32001734214387E-07" ixy="-1.13364132696678E-07" ixz="-1.23949127780939E-08" iyy="4.20433161909524E-07" iyz="-4.25714406507222E-09" izz="5.4141333132697E-07" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rob_description/meshes/gripper_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rob_description/meshes/gripper_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="gripper_joint" type="revolute">
+    <origin xyz="0.032863 0.014056 -0.020531" rpy="1.7149 -0.14736 3.1416" />
+    <parent link="wrist_pitch_link" />
+    <child link="gripper_link" />
+    <axis xyz="0 0 -1" />
+    <limit lower="0" upper="1" effort="50" velocity="10" />
+  </joint>
+  <link name="caster_wheel_1_link">
+    <inertial>
+      <origin xyz="-0.0100000103306472 0.0465929489941154 -0.00925407118086155" rpy="0 0 0" />
+      <mass value="0.00220626666381252" />
+      <inertia ixx="5.95277019646488E-08" ixy="-2.95354155573756E-10" ixz="-9.43818133528679E-14" iyy="4.28938838558849E-08" iyz="1.62135716475396E-11" izz="7.3626398552085E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rob_description/meshes/caster_wheel_1_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rob_description/meshes/caster_wheel_1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="caster_wheel_1_joint" type="continuous">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="caster_wheel_1_link" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="caster_wheel_2_link">
+    <inertial>
+      <origin xyz="-0.0093570342464941 -0.0406465780595049 -0.00925407118086147" rpy="0 0 0" />
+      <mass value="0.00220626666381252" />
+      <inertia ixx="5.94643667221062E-08" ixy="1.06617523352966E-09" ixz="1.42179391457919E-12" iyy="4.2957219098427E-08" iyz="-1.61513874366659E-11" izz="7.36263985520846E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rob_description/meshes/caster_wheel_2_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rob_description/meshes/caster_wheel_2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="caster_wheel_2_joint" type="continuous">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="caster_wheel_2_link" />
+    <axis xyz="0 0 1" />
+  </joint>
+
+  <link name="camera_link">
+    <inertial>
+      <origin xyz="-0.03 0.06 -0.087" rpy="0 0 0" />
+      <mass value="0.1" />
+      <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001" />
+    </inertial>
+    <visual>
+      <origin xyz="-0.03 0.06 -0.087" rpy="0 0 0" />
+      <geometry>
+        <box size="0.025 0.035 0.01" />
+        <!-- Represents ESP32-CAM body -->
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="-0.03 0.06 -0.087" rpy="0 0 0" />
+      <geometry>
+        <box size="0.025 0.035 0.01" />
+        <!-- Represents ESP32-CAM body -->
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="-0.03 0.06 -0.08" rpy="0 0 0" />
+      <!-- Lens protrusion -->
+      <geometry>
+        <cylinder length="0.01" radius="0.005" />
+      </geometry>
+      <material name="lens">
+        <color rgba="0.2 0.2 0.2 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="camera_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="camera_link" />
+    <origin xyz="0 0 0.15" rpy="0 0 0" />
+  </joint>
+
+
+
+
+  <transmission name="waist_link">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="waist_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="waist_link">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="wheel1_link">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="wheel1_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="wheel1_link">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="wheel2_link">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="wheel2_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="wheel2_link">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="caster_wheel_2_link">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="caster_wheel_2_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="caster_wheel_2_link">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="caster_wheel_1_link">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="caster_wheel_1_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="caster_wheel_1_link">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="shoulder_link">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="shoulder_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="shoulder_link">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="elbow_link">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="elbow_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="elbow_link">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="wrist_link">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="wrist_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="wrist_link">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="wrist_pitch_link">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="wrist_pitch_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="wrist_pitch_link">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="gripper_link">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="gripper_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="gripper link">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+</robot>
+

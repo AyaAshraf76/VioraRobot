@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/example4.dir/examples/example4.cpp.o  -o /home/lenovo36/project_ws/devel/lib/qpoases/example4  -Wl,-rpath,/home/lenovo36/project_ws/devel/lib: /home/lenovo36/project_ws/devel/lib/libqpoases.so 

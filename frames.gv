@@ -1,0 +1,20 @@
+digraph G {
+"base_link" -> "camera_link"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 262.570 sec old)\nBuffer length: 0.000 sec\n"];
+"odom" -> "base_link"[label="Broadcaster: /gazebo\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 262.570 sec old)\nBuffer length: 0.000 sec\n"];
+"shoulder_link" -> "elbow_link"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 262.570 sec old)\nBuffer length: 0.000 sec\n"];
+"waist_link" -> "shoulder_link"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 262.570 sec old)\nBuffer length: 0.000 sec\n"];
+"base_link" -> "robot_arm_base_link"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 262.570 sec old)\nBuffer length: 0.000 sec\n"];
+"robot_arm_base_link" -> "waist_link"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 262.570 sec old)\nBuffer length: 0.000 sec\n"];
+"elbow_link" -> "wrist_link"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 262.570 sec old)\nBuffer length: 0.000 sec\n"];
+"wrist_link" -> "wrist_pitch_link"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 262.570 sec old)\nBuffer length: 0.000 sec\n"];
+"base_link" -> "wheel2_link"[label="Broadcaster: /robot_state_publisher\nAverage rate: 21.125 Hz\nMost recent transform: 262.500 ( 0.070 sec old)\nBuffer length: 3.929 sec\n"];
+"base_link" -> "wheel1_link"[label="Broadcaster: /robot_state_publisher\nAverage rate: 21.125 Hz\nMost recent transform: 262.500 ( 0.070 sec old)\nBuffer length: 3.929 sec\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 262.570"[ shape=plaintext ] ;
+ }->"dummy_root";
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 262.570"[ shape=plaintext ] ;
+ }->"odom";
+}

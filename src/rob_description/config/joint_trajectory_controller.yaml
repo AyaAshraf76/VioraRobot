@@ -1,0 +1,185 @@
+#Controller to control robot leg joints
+leg_1_controller:
+  type: "position_controllers/JointTrajectoryController"
+  joints: [leg_1_1_joint, leg_1_2_joint, leg_1_3_joint]
+  effort_limits: [1.5]
+
+
+leg_2_controller:
+  type: "position_controllers/JointTrajectoryController"
+  joints: [ leg_2_1_joint, leg_2_2_joint, leg_2_3_joint]
+  effort_limits: [1.5]
+
+  
+leg_3_controller:
+  type: "position_controllers/JointTrajectoryController"
+  joints: [leg_3_1_joint,leg_3_2_joint,leg_3_3_joint]
+  effort_limits: [1.5]
+
+
+leg_4_controller:
+  type: "position_controllers/JointTrajectoryController"
+  joints: [leg_4_1_joint,leg_4_2_joint,leg_4_3_joint]
+  effort_limits: [1.5]
+
+
+#Controller to control robot arm joints
+robot_arm_controller:
+  type: "position_controllers/JointTrajectoryController"
+  joints: [waist_joint, shoulder_joint, elbow_joint, wrist_joint, wrist_pitch_joint]
+  effort_limits: [1.5]
+
+
+#Controller to control end effector joints
+end_effector_controller:
+  type: "position_controllers/JointTrajectoryController"
+  joints: [gripper_joint]
+  
+
+
+
+
+#Controller to continuously publish joint states/positions
+joint_state_controller:
+  type: "joint_state_controller/JointStateController"
+  publish_rate: 50
+
+gazebo_ros_control:
+  pid_gains:
+    # waist_joint:
+    #   p: 10.0
+    #   i: 0.1
+    #   d: 0.0
+    # shoulder_joint:
+    #   p: 10.0
+    #   i: 0.1
+    #   d: 0.0
+    # elbow_joint:
+    #   p: 10.0
+    #   i: 0.1
+    #   d: 0.0
+    # wrist_joint:
+    #   p: 10.0
+    #   i: 0.1
+    #   d: 0.0
+    # wrist_pitch_joint:
+    #   p: 10.0
+    #   i: 0.1
+    #   d: 0.0
+    # gripper_joint:
+    #   p: 10.0
+    #   i: 0.1
+    #   d: 0.0
+
+    # leg_1_1_joint:
+    #   p: 200.0
+    #   i: 0.1
+    #   d: 1000
+    # leg_1_2_joint:
+    #   p: 2000.0
+    #   i: 0.1
+    #   d: 1.0
+    # leg_1_3_joint:
+    #   p: 2000.0
+    #   i: 0.1
+    #   d: 0.0
+
+    
+    # leg_2_1_joint:
+    #   p: 200.0
+    #   i: 0.1
+    #   d: 0.0
+    # leg_2_2_joint:
+    #   p: 2000.0
+    #   i: 0.1
+    #   d: 0.0
+    # leg_2_3_joint:
+    #   p: 4000.0
+    #   i: 0.1
+    #   d: 0.0
+  
+
+    # leg_3_1_joint:
+    #   p: 2000
+    #   i: 0.1
+    #   d: 0
+    # leg_3_2_joint:
+    #   p: 2000
+    #   i: 0.1
+    #   d: 180
+    # leg_3_3_joint:
+    #   p: 200
+    #   i: 0.1
+    #   d: 0.1
+
+    # leg_4_1_joint:
+    #   p: 200
+    #   i: 0.1
+    #   d: 0
+    # leg_4_2_joint:
+    #   p: 2000
+    #   i: 0.1
+    #   d: 0
+    # leg_4_3_joint:
+    #   p: 2000
+    #   i: 0.1
+    #   d: 0
+
+    leg_1_1_joint:
+      p: 10.0
+      i: 0.1
+      d: 0
+    leg_1_2_joint:
+      p: 10.0
+      i: 0.1
+      d: 0
+    leg_1_3_joint:
+      p: 10
+      i: 0.1
+      d: 0.0
+
+    
+    leg_2_1_joint:
+      p: 10
+      i: 0.1
+      d: 0.0
+    leg_2_2_joint:
+      p: 10
+      i: 0.1
+      d: 0.0
+    leg_2_3_joint:
+      p: 10
+      i: 0.1
+      d: 0.0
+  
+
+    leg_3_1_joint:
+      p: 10
+      i: 0.1
+      d: 0
+    leg_3_2_joint:
+      p: 10
+      i: 0.1
+      d: 0
+    leg_3_3_joint:
+      p: 10
+      i: 0.1
+      d: 0
+
+    leg_4_1_joint:
+      p: 10
+      i: 0.1
+      d: 0
+    leg_4_2_joint:
+      p: 10
+      i: 0.1
+      d: 0
+    leg_4_3_joint:
+      p: 10
+      i: 0.1
+      d: 0
+
+
+
+    
+    

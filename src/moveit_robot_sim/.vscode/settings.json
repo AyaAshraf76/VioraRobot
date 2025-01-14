@@ -1,0 +1,16 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/lenovo36/project_ws/devel/lib/python3/dist-packages",
+        "/home/lenovo36/comp_ws/devel/lib/python3/dist-packages",
+        "/home/lenovo36/MIA24/devel/lib/python3/dist-packages",
+        "/home/lenovo36/catkin_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/lenovo36/project_ws/devel/lib/python3/dist-packages",
+        "/home/lenovo36/comp_ws/devel/lib/python3/dist-packages",
+        "/home/lenovo36/MIA24/devel/lib/python3/dist-packages",
+        "/home/lenovo36/catkin_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ]
+}

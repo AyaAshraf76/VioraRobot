@@ -1,0 +1,60 @@
+controller_list:
+  - name: robot_arm_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - waist_joint
+      - shoulder_joint
+      - elbow_joint
+      - wrist_joint
+      - wrist_pitch_joint
+
+  - name: leg_1_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - leg_1_1_joint
+      - leg_1_2_joint
+      - leg_1_3_joint
+
+
+
+  - name: leg_2_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - leg_2_1_joint
+      - leg_2_2_joint
+      - leg_2_3_joint
+
+
+
+  - name: leg_3_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - leg_3_1_joint
+      - leg_3_2_joint
+      - leg_3_3_joint
+
+
+  - name: leg_4_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - leg_4_1_joint
+      - leg_4_2_joint
+      - leg_4_3_joint
+
+    
+
+  - name: end_effector_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    joints:
+      - gripper_joint

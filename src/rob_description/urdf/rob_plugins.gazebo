@@ -1,0 +1,270 @@
+<?xml version="1.0"?>
+
+<!-- ESP32 CAM (OV2640) Camera Simulation -->
+<robot>
+  <!-- <gazebo reference="camera_link">
+    <sensor type="camera" name="camera1">
+      <update_rate>30.0</update_rate>
+      <camera name="esp32cam">
+        <horizontal_fov>1.22173</horizontal_fov>
+        <image>
+          <width>1600</width>
+          <height>1200</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>100</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30.0</updateRate>
+        <cameraName>esp32cam/camera1</cameraName>
+        <imageTopicName>/camera/image_raw</imageTopicName>
+        <cameraInfoTopicName>/camera/camera_info</cameraInfoTopicName>
+        <frameName>camera_link</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+  </gazebo> -->
+
+  <!-- Ultrasonic sensor plugin in gazebo -->
+  <!-- <plugin name="ultrasonic_sensor_plugin" filename="libgazebo_ros_ray_sensor.so">
+    <topicName>/ultrasonic_sensor/scan</topicName>
+    <frameName>ultrasonic_sensor_link</frameName>
+    <updateRate>30</updateRate>
+    <rangeMin>0.02</rangeMin>
+    <rangeMax>4.0</rangeMax>
+    <pose>0 0 0 0 0 0</pose>
+
+    <ray>
+      <scan>
+        <horizontal>
+          <samples>640</samples>
+          <resolution>1</resolution>
+          <min_angle>-0.2618</min_angle>
+          <max_angle>0.2618</max_angle>
+          <range>0.02 4.0</range>
+        </horizontal>
+      </scan>
+    </ray>
+  </plugin> -->
+
+
+  <gazebo>
+    <plugin name="control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/</robotNamespace>
+    </plugin>
+  </gazebo>
+
+
+  <!-- <gazebo reference="leg_1_3_link">
+    <mu1>100000000000.0</mu1>
+    <mu2>100000000000.0</mu2>
+    <minDepth>0.0002</minDepth>
+    <kp value="1000000.0"/>
+    <kd value="100.0"/>
+  </gazebo>
+  <gazebo reference="leg_2_3_link">
+    <mu1>100000000000.0</mu1>
+    <mu2>100000000000.0</mu2>
+    <minDepth>0.0002</minDepth>
+    <kp value="1000000.0"/>
+    <kd value="100.0"/>
+  </gazebo>
+  <gazebo reference="leg_3_3_link">
+    <mu1>100000000000.0</mu1>
+    <mu2>100000000000.0</mu2>
+    <minDepth>0.0002</minDepth>
+    <kp value="1000000.0"/>
+    <kd value="100.0"/>
+  </gazebo>
+  <gazebo reference="leg_4_3_link">
+    <mu1>100000000000.0</mu1>
+    <mu2>100000000000.0</mu2>
+    <minDepth>0.0002</minDepth>
+    <kp value="1000000.0"/>
+    <kd value="100.0"/>
+  </gazebo>
+
+  <gazebo reference="leg_1_2_link">
+    <mu1>100000.0</mu1>
+    <mu2>100000.0</mu2>
+    <minDepth>0.0002</minDepth>
+    <kp value="1000000.0"/>
+    <kd value="100.0"/>
+  </gazebo>
+  <gazebo reference="leg_2_2_link">
+    <mu1>100000.0</mu1>
+    <mu2>100000.0</mu2>
+    <minDepth>0.0002</minDepth>
+    <kp value="1000000.0"/>
+    <kd value="100.0"/>
+  </gazebo>
+  <gazebo reference="leg_3_2_link">
+    <mu1>100000.0</mu1>
+    <mu2>100000.0</mu2>
+    <minDepth>0.0002</minDepth>
+    <kp value="1000000.0"/>
+    <kd value="100.0"/>
+  </gazebo>
+  <gazebo reference="leg_4_2_link">
+    <mu1>100000.0</mu1>
+    <mu2>100000.0</mu2>
+    <minDepth>0.0002</minDepth>
+    <kp value="1000000.0"/>
+    <kd value="100.0"/>
+  </gazebo>
+
+  <gazebo reference="leg_1_1_link">
+    <mu1>100000.0</mu1>
+    <mu2>100000.0</mu2>
+    <minDepth>0.0002</minDepth>
+    <kp value="1000000.0"/>
+    <kd value="100.0"/>
+  </gazebo>
+  <gazebo reference="leg_2_1_link">
+    <mu1>100000.0</mu1>
+    <mu2>100000.0</mu2>
+    <minDepth>0.0002</minDepth>
+    <kp value="1000000.0"/>
+    <kd value="100.0"/>
+  </gazebo>
+  <gazebo reference="leg_3_1_link">
+    <mu1>100000.0</mu1>
+    <mu2>100000.0</mu2>
+    <minDepth>0.0002</minDepth>
+    <kp value="1000000.0"/>
+    <kd value="100.0"/>
+  </gazebo>
+  <gazebo reference="leg_4_1_link">
+    <mu1>100000.0</mu1>
+    <mu2>100000.0</mu2>
+    <minDepth>0.0002</minDepth>
+    <kp value="1000000.0"/>
+    <kd value="100.0"/>
+  </gazebo>
+  <gazebo reference="base_link">
+    <mu1>100000.0</mu1>
+    <mu2>100000.0</mu2>
+    <minDepth>0.0002</minDepth>
+    <kp value="1000000.0"/>
+    <kd value="100.0"/>
+  </gazebo> -->
+
+
+  <gazebo reference="base_link">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="leg_1_1_link">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="leg_1_2_link">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="leg_1_3_link">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="leg_2_1_link">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="leg_2_2_link">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="leg_2_3_link">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="leg_3_1_link">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="leg_3_2_link">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="leg_3_3_link">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="leg_4_1_link">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="leg_4_2_link">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="leg_4_3_link">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="waist_link">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="shoulder_link">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="elbow_link">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="wrist_link">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="wrist_pitch_link">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="gripper_link">
+    <selfCollide>true</selfCollide>
+  </gazebo>
+
+  <!-- <gazebo reference="leg_1_3_link">
+    <surface>
+      <friction>
+        <ode>
+          <mu>1.5</mu>
+          <mu2>1.5</mu2>
+        </ode>
+      </friction>
+    </surface>
+  </gazebo>
+
+  <gazebo reference="leg_2_3_link">
+    <surface>
+      <friction>
+        <ode>
+          <mu>1.5</mu>
+          <mu2>1.5</mu2>
+        </ode>
+      </friction>
+    </surface>
+  </gazebo>
+
+  <gazebo reference="leg_3_3_link">
+    <surface>
+      <friction>
+        <ode>
+          <mu>1.5</mu>
+          <mu2>1.5</mu2>
+        </ode>
+      </friction>
+    </surface>
+  </gazebo>
+
+  <gazebo reference="leg_4_3_link">
+    <surface>
+      <friction>
+        <ode>
+          <mu>1.5</mu>
+          <mu2>1.5</mu2>
+        </ode>
+      </friction>
+    </surface>
+  </gazebo> -->
+
+
+</robot>

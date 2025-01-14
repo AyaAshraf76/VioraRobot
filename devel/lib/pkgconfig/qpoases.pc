@@ -1,0 +1,8 @@
+prefix=/home/lenovo36/project_ws/devel
+
+Name: qpoases
+Description: Description of qpoases
+Version: 3.1.0
+Cflags: -I/home/lenovo36/project_ws/src/pavlov_mini/qpoases/include
+Libs: -L${prefix}/lib -lqpoases
+Requires: 

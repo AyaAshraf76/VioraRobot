@@ -1,0 +1,23 @@
+digraph G {
+"odom" -> "base_link"[label="Broadcaster: /gazebo\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 123.055 sec old)\nBuffer length: 0.000 sec\n"];
+"base_link" -> "camera_link"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 123.055 sec old)\nBuffer length: 0.000 sec\n"];
+"base_link" -> "robot_arm_base_link"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 123.055 sec old)\nBuffer length: 0.000 sec\n"];
+"base_link" -> "caster_wheel_1_link"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.244 Hz\nMost recent transform: 123.000 ( 0.055 sec old)\nBuffer length: 4.100 sec\n"];
+"base_link" -> "caster_wheel_2_link"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.244 Hz\nMost recent transform: 123.000 ( 0.055 sec old)\nBuffer length: 4.100 sec\n"];
+"shoulder_link" -> "elbow_link"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.244 Hz\nMost recent transform: 123.000 ( 0.055 sec old)\nBuffer length: 4.100 sec\n"];
+"waist_link" -> "shoulder_link"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.244 Hz\nMost recent transform: 123.000 ( 0.055 sec old)\nBuffer length: 4.100 sec\n"];
+"wrist_pitch_link" -> "gripper_link"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.244 Hz\nMost recent transform: 123.000 ( 0.055 sec old)\nBuffer length: 4.100 sec\n"];
+"wrist_link" -> "wrist_pitch_link"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.244 Hz\nMost recent transform: 123.000 ( 0.055 sec old)\nBuffer length: 4.100 sec\n"];
+"robot_arm_base_link" -> "waist_link"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.244 Hz\nMost recent transform: 123.000 ( 0.055 sec old)\nBuffer length: 4.100 sec\n"];
+"base_link" -> "wheel1_link"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.244 Hz\nMost recent transform: 123.000 ( 0.055 sec old)\nBuffer length: 4.100 sec\n"];
+"base_link" -> "wheel2_link"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.244 Hz\nMost recent transform: 123.000 ( 0.055 sec old)\nBuffer length: 4.100 sec\n"];
+"elbow_link" -> "wrist_link"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.244 Hz\nMost recent transform: 123.000 ( 0.055 sec old)\nBuffer length: 4.100 sec\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 123.055"[ shape=plaintext ] ;
+ }->"world";
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 123.055"[ shape=plaintext ] ;
+ }->"odom";
+}

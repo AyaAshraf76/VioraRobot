@@ -1,0 +1,8 @@
+prefix=/home/lenovo36/project_ws/devel
+
+Name: pavlov_mini_pybullet
+Description: Description of pavlov_mini_pybullet
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

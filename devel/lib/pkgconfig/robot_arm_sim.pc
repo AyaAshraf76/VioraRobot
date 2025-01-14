@@ -1,0 +1,8 @@
+prefix=/home/lenovo36/project_ws/devel
+
+Name: robot_arm_sim
+Description: Description of robot_arm_sim
+Version: 0.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

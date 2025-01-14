@@ -1,0 +1,8 @@
+prefix=/home/lenovo36/project_ws/devel
+
+Name: moveit_robot_sim
+Description: Description of moveit_robot_sim
+Version: 0.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

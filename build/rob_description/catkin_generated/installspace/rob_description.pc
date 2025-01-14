@@ -1,0 +1,8 @@
+prefix=/home/lenovo36/project_ws/install
+
+Name: rob_description
+Description: Description of rob_description
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

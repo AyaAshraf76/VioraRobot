@@ -1,0 +1,8 @@
+prefix=/home/lenovo36/project_ws/install
+
+Name: qpoases
+Description: Description of qpoases
+Version: 3.1.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lqpoases
+Requires: 

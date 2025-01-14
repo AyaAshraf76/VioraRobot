@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="rob_description">
+    <!-- <link name="world">
+  </link>
+
+
+  <joint name="base_joint" type="prismatic">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0.05" rpy="0 0 0.17"/>
+    <axis xyz="1 1 1"/> 
+    <limit lower="-1.3" upper="1.3" effort="0.17658" velocity="3" />
+
+  </joint> -->
+    <link name="base_link">
+        <inertial>
+            <origin xyz="0.000142161656331803 -0.0704790911512731 0.0232428386644289" rpy="0 0 0" />
+            <mass value="0.179020474590181" />
+            <inertia ixx="0.000400524612011229" ixy="-2.89131436666906E-08" ixz="-6.1393246297894E-10" iyy="0.000360830113775654" iyz="-1.1124680212854E-05" izz="0.000748531634798209" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/base_link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/base_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <gazebo reference="base_link">
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+    <gazebo reference="leg_1_3_link">
+        <mu1>10.5</mu1>
+        <mu2>10.5</mu2>
+    </gazebo>
+    <gazebo reference="leg_2_3_link">
+        <mu1>10.5</mu1>
+        <mu2>10.5</mu2>
+    </gazebo>
+    <gazebo reference="leg_3_3_link">
+        <mu1>10.5</mu1>
+        <mu2>10.5</mu2>
+    </gazebo>
+    <gazebo reference="leg_4_3_link">
+        <mu1>10.5</mu1>
+        <mu2>10.5</mu2>
+    </gazebo>
+    <link name="leg_1_1_link">
+        <inertial>
+            <origin xyz="-0.0106490352621465 -0.00788349186649798 -0.0217316457944361" rpy="0 0 0" />
+            <mass value="0.0143673057318463" />
+            <inertia ixx="2.00046296981926E-06" ixy="-1.44785102804453E-06" ixz="1.0199547543337E-07" iyy="2.90267728958665E-06" iyz="5.70211060457614E-08" izz="3.69909430740157E-06" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/leg_1_1_link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.12156862745098 0.254901960784314 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/leg_1_1_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="leg_1_1_joint" type="revolute">
+        <origin xyz="0.067436 -0.007588 0.03925" rpy="0 0 3.1416" />
+        <parent link="base_link" />
+        <child link="leg_1_1_link" />
+        <axis xyz="0 0 1" />
+        <limit lower="-1.3" upper="1.3" effort="75" velocity="3" />
+    </joint>
+    <link name="leg_1_2_link">
+        <inertial>
+            <origin xyz="-0.0240030080062505 0.00154691156426078 -0.0168300270535889" rpy="0 0 0" />
+            <mass value="0.0194186744544705" />
+            <inertia ixx="4.37362559849436E-06" ixy="3.15015061261735E-07" ixz="-3.65341749437026E-08" iyy="9.16498617164118E-06" iyz="2.3249787544917E-22" izz="5.43377889107762E-06" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/leg_1_2_link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.12156862745098 0.254901960784314 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/leg_1_2_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="leg_1_2_joint" type="revolute">
+        <origin xyz="-0.0094487 -0.037471 -0.02475" rpy="1.5708 0 0.75695" />
+        <parent link="leg_1_1_link" />
+        <child link="leg_1_2_link" />
+        <axis xyz="0 0 1" />
+        <limit lower="-1.57" upper="1.57" effort="75" velocity="3" />
+    </joint>
+    <link name="leg_1_3_link">
+        <inertial>
+            <origin xyz="-0.0116199972401624 -0.0159593362453021 -0.023840410791102" rpy="0 0 0" />
+            <mass value="0.0241947516819825" />
+            <inertia ixx="1.00525150794293E-05" ixy="-2.63446904038669E-06" ixz="-1.44799444513624E-07" iyy="3.22719003519367E-06" iyz="-4.80347692515564E-07" izz="1.14324733611022E-05" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/leg_1_3_link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.12156862745098 0.254901960784314 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/leg_1_3_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="leg_1_3_joint" type="revolute">
+        <origin xyz="-0.070632 0.0048883 0" rpy="0 0 0" />
+        <parent link="leg_1_2_link" />
+        <child link="leg_1_3_link" />
+        <axis xyz="0 0 1" />
+        <limit lower="-3.09" upper="0.5" effort="75" velocity="3" />
+    </joint>
+    <link name="leg_2_1_link">
+        <inertial>
+            <origin xyz="0.00765382023590318 -0.0110595344702691 -0.0217316457944361" rpy="0 0 0" />
+            <mass value="0.0143673057318463" />
+            <inertia ixx="2.99910580377544E-06" ixy="1.4142047075038E-06" ixz="-5.35542822138962E-08" iyy="1.90403445563047E-06" iyz="1.03857702651828E-07" izz="3.69909430740157E-06" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/leg_2_1_link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.12156862745098 0.254901960784314 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/leg_2_1_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="leg_2_1_joint" type="revolute">
+        <origin xyz="-0.067132 -0.0078501 0.03925" rpy="0 0 3.1416" />
+        <parent link="base_link" />
+        <child link="leg_2_1_link" />
+        <axis xyz="0 0 1" />
+        <limit lower="-1.3" upper="1.3" effort="75" velocity="3" />
+    </joint>
+    <link name="leg_2_2_link">
+        <inertial>
+            <origin xyz="-0.0240407161564033 0.000837306848763444 -0.0168300270535892" rpy="0 0 0" />
+            <mass value="0.0194186744544706" />
+            <inertia ixx="4.35825480780332E-06" ixy="1.70797093131495E-07" ixz="-3.65341749437066E-08" iyy="9.18035696233226E-06" iyz="7.6771153781775E-22" izz="5.43377889107763E-06" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/leg_2_2_link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.12156862745098 0.254901960784314 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/leg_2_2_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="leg_2_2_joint" type="revolute">
+        <origin xyz="0.037396 -0.011005 -0.02475" rpy="1.5708 0 2.2941" />
+        <parent link="leg_2_1_link" />
+        <child link="leg_2_2_link" />
+        <axis xyz="0 0 1" />
+        <limit lower="-1.57" upper="1.57" effort="75" velocity="3" />
+    </joint>
+    <link name="leg_2_3_link">
+        <inertial>
+            <origin xyz="-0.0120694937507684 -0.015533695318398 -0.0238404132064595" rpy="0 0 0" />
+            <mass value="0.0241947564491642" />
+            <inertia ixx="9.84592383759881E-06" ixy="-2.88232802391957E-06" ixz="-1.62673942353806E-07" iyy="3.43378314409524E-06" iyz="-4.74594077197786E-07" izz="1.14324745456412E-05" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/leg_2_3_link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.12156862745098 0.254901960784314 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/leg_2_3_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="leg_2_3_joint" type="revolute">
+        <origin xyz="-0.070949 0.0026748 0" rpy="0 0 0" />
+        <parent link="leg_2_2_link" />
+        <child link="leg_2_3_link" />
+        <axis xyz="0 0 1" />
+        <limit lower="-3.09" upper="0.5" effort="75" velocity="3" />
+    </joint>
+    <link name="leg_3_1_link">
+        <inertial>
+            <origin xyz="0.0126970354971494 0.00443616461447369 -0.0217316457944361" rpy="0 0 0" />
+            <mass value="0.0143673057318463" />
+            <inertia ixx="1.25625446259264E-06" ixy="-9.3326883858219E-07" ixz="-1.14361605927127E-07" iyy="3.64688579681327E-06" iyz="-2.39980547822068E-08" izz="3.69909430740157E-06" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/leg_3_1_link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.12156862745098 0.254901960784314 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/leg_3_1_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="leg_3_1_joint" type="revolute">
+        <origin xyz="-0.06718 -0.14209 0.03925" rpy="0 0 3.1416" />
+        <parent link="base_link" />
+        <child link="leg_3_1_link" />
+        <axis xyz="0 0 1" />
+        <limit lower="-1.3" upper="1.3" effort="75" velocity="3" />
+    </joint>
+    <link name="leg_3_2_link">
+        <inertial>
+            <origin xyz="-0.02405625766153 -5.43509583599191E-05 -0.0168300270513747" rpy="0 0 0" />
+            <mass value="0.0194186744544706" />
+            <inertia ixx="4.35191218053022E-06" ixy="-1.10943931526685E-08" ixz="-3.65341749017511E-08" iyy="9.18669958960249E-06" iyz="4.29736871833547E-19" izz="5.43377889108045E-06" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/leg_3_2_link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.12156862745098 0.254901960784314 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/leg_3_2_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="leg_3_2_joint" type="revolute">
+        <origin xyz="0.020556 0.033121 -0.02475" rpy="1.5708 0 -2.6876" />
+        <parent link="leg_3_1_link" />
+        <child link="leg_3_2_link" />
+        <axis xyz="0 0 1" />
+        <limit lower="-1.57" upper="1.57" effort="75" velocity="3" />
+    </joint>
+    <link name="leg_3_3_link">
+        <inertial>
+            <origin xyz="-0.0124936356093147 -0.0151946394857798 -0.0238404136825089" rpy="0 0 0" />
+            <mass value="0.0241947491201489" />
+            <inertia ixx="9.68198159825631E-06" ixy="-3.05484752975316E-06" ixz="-1.7571148648404E-07" iyy="3.59771587259095E-06" iyz="-4.69924040082928E-07" izz="1.14324644656944E-05" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/leg_3_3_link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.12156862745098 0.254901960784314 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/leg_3_3_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="leg_3_3_joint" type="revolute">
+        <origin xyz="-0.070997 -0.00013741 0" rpy="0 0 0" />
+        <parent link="leg_3_2_link" />
+        <child link="leg_3_3_link" />
+        <axis xyz="0 0 1" />
+        <limit lower="-3.09" upper="0.5" effort="75" velocity="3" />
+    </joint>
+    <link name="leg_4_1_link">
+        <inertial>
+            <origin xyz="-0.0108987888292679 0.00788103222665758 -0.0217316457944361" rpy="0 0 0" />
+            <mass value="0.0143673057318463" />
+            <inertia ixx="1.98994613803271E-06" ixy="1.44453229781212E-06" ixz="8.50719290596024E-08" iyy="2.9131941213732E-06" iyz="-8.01077426322773E-08" izz="3.69909430740156E-06" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/leg_4_1_link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.12156862745098 0.254901960784314 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/leg_4_1_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="leg_4_1_joint" type="revolute">
+        <origin xyz="0.06742 -0.14215 0.03925" rpy="0 0 3.1416" />
+        <parent link="base_link" />
+        <child link="leg_4_1_link" />
+        <axis xyz="0 0 1" />
+        <limit lower="-1.3" upper="1.3" effort="75" velocity="3" />
+    </joint>
+    <link name="leg_4_2_link">
+        <inertial>
+            <origin xyz="-0.024051068680761 0.000485899382056869 -0.0168300270535894" rpy="0 0 0" />
+            <mass value="0.0194186744544706" />
+            <inertia ixx="4.35403033809247E-06" ixy="9.91613384555115E-08" ixz="-3.65341749436961E-08" iyy="9.1845814320431E-06" iyz="-3.77195160131607E-22" izz="5.43377889107763E-06" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/leg_4_2_link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.12156862745098 0.254901960784314 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/leg_4_2_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="leg_4_2_joint" type="revolute">
+        <origin xyz="-0.038927 -0.0020709 -0.02475" rpy="1.5708 0 -0.50817" />
+        <parent link="leg_4_1_link" />
+        <child link="leg_4_2_link" />
+        <axis xyz="0 0 1" />
+        <limit lower="-1.57" upper="1.57" effort="75" velocity="3" />
+    </joint>
+    <link name="leg_4_3_link">
+        <inertial>
+            <origin xyz="-0.0128468350172348 -0.0148972191681003 -0.0238404102670697" rpy="0 0 0" />
+            <mass value="0.024194755406874" />
+            <inertia ixx="9.53527419664644E-06" ixy="-3.1942507137305E-06" ixz="-1.86691989740315E-07" iyy="3.74443269642469E-06" iyz="-4.65668107771331E-07" izz="1.14324750578155E-05" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/leg_4_3_link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.12156862745098 0.254901960784314 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/leg_4_3_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="leg_4_3_joint" type="revolute">
+        <origin xyz="-0.07098 0.0015744 0" rpy="0 0 0" />
+        <parent link="leg_4_2_link" />
+        <child link="leg_4_3_link" />
+        <axis xyz="0 0 1" />
+        <limit lower="-3.09" upper="0.5" effort="75" velocity="3" />
+    </joint>
+    <link name="robot_arm_base_link">
+        <inertial>
+            <origin xyz="-0.00060550087230387 -0.0746232517815496 0.0658482076492735" rpy="0 0 0" />
+            <mass value="0.0938941939628841" />
+            <inertia ixx="0.00011393791922916" ixy="1.97717536504341E-13" ixz="1.35515920698357E-06" iyy="0.000124247629168402" iyz="-1.90758299063095E-13" izz="0.000197548704096291" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/robot_arm_base_link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/robot_arm_base_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="robot_arm_base_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <parent link="base_link" />
+        <child link="robot_arm_base_link" />
+        <axis xyz="0 0 0" />
+    </joint>
+    <link name="waist_link">
+        <inertial>
+            <origin xyz="0.00611859874217046 0.00351738738985236 0.0144229347811668" rpy="0 0 0" />
+            <mass value="0.0897213187915253" />
+            <inertia ixx="7.47059613692468E-05" ixy="4.46564576455446E-06" ixz="-6.90784940398821E-06" iyy="6.9504003440658E-05" iyz="-3.97104407861625E-06" izz="7.06954475493945E-05" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/waist_link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/waist_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="waist_joint" type="revolute">
+        <origin xyz="0.00028473 -0.074623 0.09845" rpy="0 0 3.1416" />
+        <parent link="robot_arm_base_link" />
+        <child link="waist_link" />
+        <axis xyz="0 0 1" />
+        <limit lower="-0.6" upper="2.54" effort="75" velocity="3" />
+    </joint>
+    <link name="shoulder_link">
+        <inertial>
+            <origin xyz="-0.0310609091112614 0.0627288829136049 -0.0103077586659709" rpy="0 0 0" />
+            <mass value="0.13797058412603" />
+            <inertia ixx="0.000337671851308865" ixy="0.000151928622465238" ixz="-5.14980053501098E-12" iyy="0.000106061064850195" iyz="-2.38384183718482E-09" izz="0.000431654996422589" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/shoulder_link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/shoulder_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="shoulder_joint" type="revolute">
+        <origin xyz="0.0021674 0.0012459 0.03855" rpy="1.5708 0 2.0925" />
+        <parent link="waist_link" />
+        <child link="shoulder_link" />
+        <axis xyz="0 0 1" />
+        <limit lower="-2.04" upper="1.1" effort="75" velocity="3" />
+    </joint>
+    <link name="elbow_link">
+        <inertial>
+            <origin xyz="-0.0317110681393049 0.000512819590960834 0.0105819481349713" rpy="0 0 0" />
+            <mass value="0.0805412728707214" />
+            <inertia ixx="2.13906677114355E-05" ixy="1.45993082529441E-06" ixz="8.18249461605616E-07" iyy="0.000104511975012836" iyz="-1.64217381590211E-08" izz="0.000117350303128806" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/elbow_link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0 0 0.501960784313725 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/elbow_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="elbow_joint" type="revolute">
+        <origin xyz="-0.062122 0.12546 0" rpy="0 0 0" />
+        <parent link="shoulder_link" />
+        <child link="elbow_link" />
+        <axis xyz="0 0 1" />
+        <limit lower="-1.8" upper="1.34" effort="75" velocity="3" />
+    </joint>
+    <link name="wrist_link">
+        <inertial>
+            <origin xyz="-0.00471777788275105 0.00155489407652704 0.0121966940287668" rpy="0 0 0" />
+            <mass value="0.0204563646354008" />
+            <inertia ixx="6.04214500606226E-06" ixy="-1.775155318629E-07" ixz="3.80836197673735E-07" iyy="5.12770780036699E-06" iyz="-8.37854840705123E-08" izz="2.96023192277235E-06" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/wrist_link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.556862745098039 0.556862745098039 0.556862745098039 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/wrist_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="wrist_joint" type="revolute">
+        <origin xyz="-0.11081 -0.003455 0.01185" rpy="3.1234 -1.5708 -3.1342" />
+        <parent link="elbow_link" />
+        <child link="wrist_link" />
+        <axis xyz="0 0 1" />
+        <limit lower="0" upper="3.14" effort="75" velocity="3" />
+    </joint>
+    <link name="wrist_pitch_link">
+        <inertial>
+            <origin xyz="0.0234962838007828 -0.00839115023257386 -0.00860452842373835" rpy="0 0 0" />
+            <mass value="0.0155761385595563" />
+            <inertia ixx="2.81087134144932E-06" ixy="1.21214546283074E-06" ixz="4.74575353731491E-07" iyy="6.02127331140936E-06" iyz="-2.70433488341758E-07" izz="4.87873697904178E-06" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/wrist_pitch_link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/wrist_pitch_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="wrist_pitch_joint" type="revolute">
+        <origin xyz="-0.022134 0.0049255 0.02215" rpy="1.5708 -1.5557 -1.76" />
+        <parent link="wrist_link" />
+        <child link="wrist_pitch_link" />
+        <axis xyz="0 0 1" />
+        <limit lower="-1.14" upper="2" effort="75" velocity="3" />
+    </joint>
+    <link name="gripper_link">
+        <inertial>
+            <origin xyz="-0.00632044577393159 -0.00360312105778196 -0.00225628206764211" rpy="0 0 0" />
+            <mass value="0.0028244899707033" />
+            <inertia ixx="2.18828793010801E-07" ixy="-1.74230137961414E-07" ixz="-1.06355092899113E-08" iyy="3.33606103113108E-07" iyz="-7.65787702379376E-09" izz="5.41413331326968E-07" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/gripper_link.STL" />
+            </geometry>
+            <material name="">
+                <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://rob_description/meshes/gripper_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="gripper_joint" type="revolute">
+        <origin xyz="0.034204 -0.0015613 -0.02295" rpy="1.5708 1.2123 2.6053" />
+        <parent link="wrist_pitch_link" />
+        <child link="gripper_link" />
+        <axis xyz="0 0 -1" />
+        <limit lower="-1.1" upper="-0.4" effort="75" velocity="3" />
+    </joint>
+    <link name="camera_link">
+        <visual>
+            <origin xyz="-0.02 -0.002 0.023" rpy="0 0 0" />
+            <geometry>
+                <box size="0.01 0.01 0.005" />
+                <!-- Define a small box for the camera body -->
+            </geometry>
+            <material name="">
+                <color rgba="0.2 0.2 0.2 1" />
+                <!-- Dark gray color for the camera body -->
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.02 -0.002 0.023" rpy="0 0 0" />
+            <geometry>
+                <box size="0.01 0.01 0.005" />
+                <!-- Collision box matching the visual size -->
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <joint name="camera_joint" type="fixed">
+        <parent link="base_link" />
+        <child link="camera_link" />
+        <origin xyz="-0.02 -0.002 0.023" rpy="0 0 0" />
+    </joint>
+    <transmission name="trans_leg_1_1_joint">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="leg_1_1_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="leg_1_1_joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_leg_1_2_joint">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="leg_1_2_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="leg_1_2_joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_leg_1_3_joint">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="leg_1_3_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="leg_1_3_joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_leg_2_1_joint">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="leg_2_1_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="leg_2_1_joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_leg_2_2_joint">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="leg_2_2_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="leg_2_2_joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_leg_2_3_joint">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="leg_2_3_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="leg_2_3_joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_leg_3_1_joint">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="leg_3_1_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="leg_3_1_joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_leg_3_2_joint">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="leg_3_2_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="leg_3_2_joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_leg_3_3_joint">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="leg_3_3_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="leg_3_3_joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_leg_4_1_joint">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="leg_4_1_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="leg_4_1_joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_leg_4_2_joint">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="leg_4_2_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="leg_4_2_joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_leg_4_3_joint">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="leg_4_3_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="leg_4_3_joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_waist_joint">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="waist_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="waist_joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_shoulder_joint">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="shoulder_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="shoulder_joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_elbow_joint">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="elbow_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="elbow_joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_wrist_joint">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="wrist_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="wrist_joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_wrist_pitch_joint">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="wrist_pitch_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="wrist_pitch_joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_gripper_joint">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="gripper_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="gripper_joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+</robot>
+

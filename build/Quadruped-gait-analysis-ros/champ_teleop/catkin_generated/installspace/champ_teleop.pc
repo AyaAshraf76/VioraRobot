@@ -1,0 +1,8 @@
+prefix=/home/lenovo36/project_ws/install
+
+Name: champ_teleop
+Description: Description of champ_teleop
+Version: 0.6.2
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
