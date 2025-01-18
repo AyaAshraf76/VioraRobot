@@ -2,8 +2,8 @@
 #include <ros.h>
 #include <std_msgs/Float32.h>
 
-#define trigPin PA9  
-#define echoPin PA10 
+#define trigPin PA6  
+#define echoPin PA7
 
 ros ::NodeHandle nh;
 
@@ -41,5 +41,5 @@ void loop() {
   nh.spinOnce();
 
 
-  delay(500);  
+  delay(100);  
 }

@@ -20,12 +20,12 @@ void joint_angles_callback(const std_msgs::Float32MultiArray& msg) {
   // [waist_joint, shoulder_joint, elbow_joint, wrist_joint, wrist_pitch_joint, gripper_joint]
   
   // Map joint angles (in degrees) to PWM signals for the servos
-  waist_servo.write(map(msg.data[0],-35.3,122.7,0,180));  // Map from -90 to 90 degrees to PWM
-  shoulder_servo.write(map(msg.data[1],-1,46,120,0));
-  elbow_servo.write(map(msg.data[2],-1.3,77,0,180));
+  waist_servo.write(map(msg.data[0],-57.3,122.7,0,180));  // Map from -90 to 90 degrees to PWM
+  shoulder_servo.write(map(msg.data[1],-116.89,63.03,0,180));
+  elbow_servo.write(map(msg.data[2],-103.2,76.8,180,0));
   wrist_servo.write(msg.data[3]);
-  wrist_pitch_servo.write(map(msg.data[4],-0.5,30,0,180));
-  gripper_servo.write(map(msg.data[5],-63.5,-42,0,180));  // Assuming gripper is angle-controlled
+  wrist_pitch_servo.write(map(msg.data[4],-65.4,114.7,0,180));
+  gripper_servo.write(map(msg.data[5],-63.1,-23,0,180));  // Assuming gripper is angle-controlled
 }
 
 std_msgs::Float32MultiArray joint_angles_msg;

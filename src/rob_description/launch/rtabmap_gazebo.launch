@@ -5,6 +5,8 @@
   <include file="$(find moveit_robot_sim)/launch/robot_sim.launch" />
 
   <node name="ultrasonic_sensor" pkg="rob_description" type="ultrasonic_sensor.py" output="screen"/>
+  <node name="camera" pkg="rob_description" type="camera_sensor.py" output="screen"/>
+
 
   <!-- Run Arduino Node with rosserial -->
   <node pkg="rosserial_arduino" type="serial_node.py" name="rosserial_arduino" output="screen">
@@ -23,8 +25,8 @@
   <arg unless="$(arg localization)" name="rtabmap_args" default="--delete_db_on_start"/>
 
   <!-- Remap camera topics for ESP32-CAM -->
-  <!-- <remap from="rgb/image" to="/camera/image_raw"/>
-  <remap from="rgb/camera_info" to="/camera/camera_info"/> -->
+  <remap from="rgb/image" to="/camera/rgb/image_raw"/>
+  <remap from="rgb/camera_info" to="/camera/camera_info"/>
   <remap from="/rtabmap/scan" to="/ultrasonic/laser_scan"/>
 
 
@@ -39,7 +41,7 @@
       <param name="subscribe_scan" type="bool" value="true"/>
 
       <param name="Rtabmap/DetectionRate" type="int" value="10"/>
-      <param name="queue_size" type="int" value="10"/>
+      <param name="sync_queue_size" type="int" value="10"/>
       <param name="odom_frame_id" type="string" value="odom"/>
       <param name="odom_tf_linear_variance" type="double" value="0.001"/>
       <param name="odom_tf_angular_variance" type="double" value="0.001"/>
@@ -75,7 +77,7 @@
       <param name="Icp/PointToPlane" type="string" value="false"/>
       <param name="Icp/MaxCorrespondenceDistance" type="string" value="0.15"/>
       <param name="Icp/VoxelSize" type="string" value="0.05"/>
-      <param name="approx_sync" type="bool" value="true"/>
+      <param name="approx_sync" type="bool" value="false"/>
       <param name="proj_min_height" type ="double" value="2.0"/>
 
       <!-- localization mode -->
@@ -101,7 +103,7 @@
 
   <!-- PointCloud for visualization (if needed) -->
   <node pkg="nodelet" type="nodelet" name="points_xyzrgb" args="standalone rtabmap_util/point_cloud_xyzrgb">
-    <param name="sync_queue_size" type="int" value="100"/>
+    <param name="sync_queue_size" type="int" value="10"/>
     <param name="voxel_size" type="double" value="0.01"/>
   </node>
 

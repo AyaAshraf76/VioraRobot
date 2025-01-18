@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 import rospy
-from std_msgs.msg import *
+from std_msgs.msg import Float32
 from sensor_msgs.msg import LaserScan
-from tf.transformations import euler_from_quaternion
 import numpy as np
 import time
 from itertools import count
@@ -12,7 +11,7 @@ index = count(step=1)  # Time counter
 # ROS Publisher for LaserScan
 pub_laser = rospy.Publisher("/ultrasonic/laser_scan", LaserScan, queue_size=100)
 
-# List to store the distances for LaserScan
+# List to store the distances for LaserScan (180 degrees)
 scan_range = [0.0] * 180  # Assuming 180 degrees for the scan
 
 # Global variable for ultrasonic sensor data
@@ -29,37 +28,32 @@ def callback1(data):
     w1 = round(w1, 3)  # Round to 3 decimal places
     # print(f"Distance from ultrasonic sensor: {w1} m")
 
-
-
 # LaserScan publishing function
 def laser():
-    time_begin = rospy.Time.now()
-    r = rospy.Rate(10)  # 10 Hz rate
+    r = rospy.Rate(10)  # 10 Hz rate for publishing LaserScan data
 
     while not rospy.is_shutdown():
-        time_end = rospy.Time.now()
-        
         # Loop to simulate laser scanning at 180 degrees (could be adjusted based on sensor movement)
         for i in range(180):
-            scan_range[i] = w1  # Use the ultrasonic data for the scan range
-            
-            # Create LaserScan message
-            laser = LaserScan()
-            laser.header.seq = next(index)
-            laser.header.stamp = time_end
-            laser.header.frame_id = 'sonar'  # Reference frame name
-            laser.angle_min = 0 * np.pi / 180  # Start angle in radians (0 degrees)
-            laser.angle_max = 165 * np.pi / 180  # End angle in radians (165 degrees)
-            laser.angle_increment = np.pi / 180  # Increment angle (1 degree per reading)
-            laser.time_increment = 0  # Time per scan point
-            laser.scan_time = 0.001  # Time between scans
-            laser.range_min = 0.01  # Minimum range (meters)
-            laser.range_max = 4  # Maximum range (meters)
-            laser.ranges = scan_range  # Array of distance readings (from ultrasonic sensor)
-            laser.intensities = []  # Intensity data is left empty for this case
+            scan_range[i] = w1  # Use the ultrasonic data for all the scan angles
 
-            # Publish LaserScan message
-            pub_laser.publish(laser)
+        # Create LaserScan message (one message per scan)
+        laser = LaserScan()
+        laser.header.seq = next(index)
+        laser.header.stamp = rospy.Time.now()
+        laser.header.frame_id = 'sonar'  # Reference frame name
+        laser.angle_min = 0 * np.pi / 180  # Start angle in radians (0 degrees)
+        laser.angle_max = 180 * np.pi / 180  # End angle in radians (180 degrees)
+        laser.angle_increment = np.pi / 180  # Increment angle (1 degree per reading)
+        laser.time_increment = (laser.angle_increment) / (2 * np.pi)  # Time between each measurement
+        laser.scan_time = 1 / 10.0  # Time between scans (this should match your publishing rate)
+        laser.range_min = 0.01  # Minimum range (meters)
+        laser.range_max = 4  # Maximum range (meters)
+        laser.ranges = scan_range  # Array of distance readings (from ultrasonic sensor)
+        laser.intensities = []  # Intensity data is left empty for this case
+
+        # Publish LaserScan message
+        pub_laser.publish(laser)
 
         r.sleep()
 
