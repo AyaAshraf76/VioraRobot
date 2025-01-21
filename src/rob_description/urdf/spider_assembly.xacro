@@ -618,7 +618,7 @@
     <origin xyz="-0.02 -0.002 0.023" rpy="0 0 0" />
   </joint>
 
-  <link name="ultrasonic_link">
+  <link name="sonar_link">
     <collision>
       <geometry>
         <box size="0.01 0.01 0.006"/>
@@ -637,7 +637,7 @@
 
   <joint name="ultrasonic_sensor_joint" type="fixed">
     <parent link="base_link"/>
-    <child link="ultrasonic_link"/>
+    <child link="sonar_link"/>
     <origin xyz="0.01 -0.002 0.1" rpy="0 0 0"/>
   </joint>
 

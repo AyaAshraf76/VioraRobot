@@ -1,15 +1,9 @@
 #!/usr/bin/env python3
 import rospy
-from std_msgs.msg import String
 from sensor_msgs.msg import Image, CameraInfo
 from cv_bridge import CvBridge
-import urllib.request
 import cv2
-import numpy as np
 import threading
-
-# ESP32-CAM URL
-url = 'http://192.168.1.16/capture'  # Replace with your ESP32-CAM's capture URL
 
 # Initialize ROS node
 rospy.init_node('camera_for_slam', anonymous=True)
@@ -27,34 +21,37 @@ frame_lock = threading.Lock()
 
 # Camera Info (Intrinsics for your camera)
 camera_info = CameraInfo()
-camera_info.width = 640  # Example resolution
-camera_info.height = 480  # Example resolution
-camera_info.K = [376.687, 0, 162.233, 0, 387.095, 115.588, 0, 0, 1]  # Example intrinsic matrix (fx, fy, cx, cy)
+camera_info.width = 640  # Example resolution (You can adjust this based on your webcam resolution)
+camera_info.height = 480  # Example resolution (You can adjust this based on your webcam resolution)
+camera_info.K = [376.687, 0, 320, 0, 376.687, 240, 0, 0, 1]  # Intrinsic matrix (adjust as needed)
 camera_info.D = [0.1847, -0.0369, 0.005543, -0.003784, 0.0]  # Distortion coefficients (example)
-camera_info.P = [394.825, 0, 161.33, 0, 0, 405.69, 116.5638, 0, 0, 0, 1, 0]  # Projection matrix
+camera_info.P = [376.687, 0, 320, 0, 0, 376.687, 240, 0, 0, 0, 1, 0]  # Projection matrix (adjust as needed)
+
+# Initialize the webcam (0 is the default camera)
+cap = cv2.VideoCapture(0)
+
+# Check if webcam is opened correctly
+if not cap.isOpened():
+    rospy.logerr("Could not open webcam.")
+    exit()
 
 def fetch_frame():
     global frame
     while not rospy.is_shutdown():
-        try:
-            # Fetch frame from ESP32-CAM stream
-            img_resp = urllib.request.urlopen(url)
-            imgnp = np.array(bytearray(img_resp.read()), dtype=np.uint8)
-            new_frame = cv2.imdecode(imgnp, -1)
-            if new_frame is not None:
-                with frame_lock:
-                    frame = new_frame
-        except Exception as e:
-            print("Error fetching frame:", e)
+        ret, new_frame = cap.read()  # Capture frame from webcam
+        if ret:
+            with frame_lock:
+                frame = new_frame
+        else:
+            rospy.logwarn("Failed to capture image from webcam.")
 
 def publish_camera_info():
     print("Publishing camera info for SLAM...")
     while not rospy.is_shutdown():
         with frame_lock:
             if frame is not None:
-                # Publish the frame as an image message
                 try:
-                    
+                    # Publish the frame as an image message
                     image_message = bridge.cv2_to_imgmsg(frame, encoding="bgr8")
                     image_message.header.stamp = rospy.Time.now()
                     image_message.header.frame_id = "camera_link"

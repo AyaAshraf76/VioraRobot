@@ -3,13 +3,12 @@ import rospy
 from std_msgs.msg import Float32
 from sensor_msgs.msg import LaserScan
 import numpy as np
-import time
 from itertools import count
 
-index = count(step=1)  # Time counter 
+index = count(step=1)  # Time counter
 
 # ROS Publisher for LaserScan
-pub_laser = rospy.Publisher("/ultrasonic/laser_scan", LaserScan, queue_size=100)
+pub_laser = rospy.Publisher("/ultrasonic/laser_scan", LaserScan, queue_size=10)
 
 # List to store the distances for LaserScan (180 degrees)
 scan_range = [0.0] * 180  # Assuming 180 degrees for the scan
@@ -33,15 +32,12 @@ def laser():
     r = rospy.Rate(10)  # 10 Hz rate for publishing LaserScan data
 
     while not rospy.is_shutdown():
-        # Loop to simulate laser scanning at 180 degrees (could be adjusted based on sensor movement)
-        for i in range(180):
-            scan_range[i] = w1  # Use the ultrasonic data for all the scan angles
-
         # Create LaserScan message (one message per scan)
         laser = LaserScan()
         laser.header.seq = next(index)
-        laser.header.stamp = rospy.Time.now()
-        laser.header.frame_id = 'sonar'  # Reference frame name
+        laser.header.stamp = rospy.Time.now()  # Set the timestamp to the current time
+        laser.header.frame_id = 'sonar_link'  # Reference frame name
+
         laser.angle_min = 0 * np.pi / 180  # Start angle in radians (0 degrees)
         laser.angle_max = 180 * np.pi / 180  # End angle in radians (180 degrees)
         laser.angle_increment = np.pi / 180  # Increment angle (1 degree per reading)
@@ -49,6 +45,11 @@ def laser():
         laser.scan_time = 1 / 10.0  # Time between scans (this should match your publishing rate)
         laser.range_min = 0.01  # Minimum range (meters)
         laser.range_max = 4  # Maximum range (meters)
+
+        # Loop to simulate laser scanning at 180 degrees (could be adjusted based on sensor movement)
+        for i in range(180):
+            scan_range[i] = w1  # Use the ultrasonic data for all the scan angles
+
         laser.ranges = scan_range  # Array of distance readings (from ultrasonic sensor)
         laser.intensities = []  # Intensity data is left empty for this case
 

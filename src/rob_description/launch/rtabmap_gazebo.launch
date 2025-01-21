@@ -5,7 +5,9 @@
   <include file="$(find moveit_robot_sim)/launch/robot_sim.launch" />
 
   <node name="ultrasonic_sensor" pkg="rob_description" type="ultrasonic_sensor.py" output="screen"/>
-  <node name="camera" pkg="rob_description" type="camera_sensor.py" output="screen"/>
+  <node name="camera" pkg="rob_description" type="my_camera.py" output="screen"/>
+  <!-- <node name="camera_publisher" pkg="rob_description" type="camera_depth.py" output="screen"/> -->
+
 
 
   <!-- Run Arduino Node with rosserial -->
@@ -17,7 +19,7 @@
   <arg name="rviz" default="true" />
   <arg name="rtabmap_viz" default="true" />
 
-  <param name="use_sim_time" type="bool" value="true"/>
+  <param name="use_sim_time" type="bool" value="false"/>
 
   <!-- Localization-only mode -->
   <arg name="localization" default="false"/>
@@ -26,8 +28,10 @@
 
   <!-- Remap camera topics for ESP32-CAM -->
   <remap from="rgb/image" to="/camera/rgb/image_raw"/>
-  <remap from="rgb/camera_info" to="/camera/camera_info"/>
+  <!-- <remap from="rgb/camera_info" to="/camera/camera_info"/> -->
   <remap from="/rtabmap/scan" to="/ultrasonic/laser_scan"/>
+  <!-- <remap from="camera/depth/image_raw" to="/camera/depth/image_raw"/> -->
+  <!-- Add depth topic remapping -->
 
 
   <group ns="rtabmap">
@@ -36,7 +40,7 @@
       <param name="frame_id" type="string" value="base_link"/>
       <param name="wait_for_transform" type="bool" value="true"/>
       <!-- Monocular SLAM configuration -->
-      <param name="subscribe_depth" type="bool" value="false"/>
+      <param name="subscribe_depth" type="bool" value="true"/>
       <!-- No depth info for monocular -->
       <param name="subscribe_scan" type="bool" value="true"/>
 
@@ -77,10 +81,12 @@
       <param name="Icp/PointToPlane" type="string" value="false"/>
       <param name="Icp/MaxCorrespondenceDistance" type="string" value="0.15"/>
       <param name="Icp/VoxelSize" type="string" value="0.05"/>
-      <param name="approx_sync" type="bool" value="false"/>
+      <param name="approx_sync" type="bool" value="true"/>
       <param name="proj_min_height" type ="double" value="2.0"/>
+      <param name="RGBD/CreateOccupancyGrid" value="true"/>
+      <param name="Grid/FromDepth" value="false"/>
 
-      <!-- localization mode -->
+            <!-- localization mode -->
       <param if="$(arg localization)" name="Mem/IncrementalMemory" type="string" value="false"/>
       <param unless="$(arg localization)" name="Mem/IncrementalMemory" type="string" value="true"/>
       <param name="Mem/InitWMWithAllNodes" type="string" value="$(arg localization)"/>
@@ -99,7 +105,7 @@
   </group>
 
   <!-- Visualisation RVIZ -->
-  <node if="$(arg rviz)" pkg="rviz" type="rviz" name="rviz" args="-d $(find rtabmap_demos)/launch/config/demo_robot_mapping.rviz" output="screen"/>
+  <node if="$(arg rviz)" pkg="rviz" type="rviz" name="rviz" args="-d $(find rob_description)/config/robot_mapping.rviz" output="screen"/>
 
   <!-- PointCloud for visualization (if needed) -->
   <node pkg="nodelet" type="nodelet" name="points_xyzrgb" args="standalone rtabmap_util/point_cloud_xyzrgb">
@@ -107,8 +113,12 @@
     <param name="voxel_size" type="double" value="0.01"/>
   </node>
 
-  <node pkg="tf" type="static_transform_publisher" name="map_to_base_link" args="0 0 0 0 0 0 1 base_link map 100"/>
-  <node pkg="tf" type="static_transform_publisher" name="sonar_to_base_link" args="0 0 0.2 0 0 0 base_link sonar 100" />
+  <!-- <node pkg="tf" type="static_transform_publisher" name="map_to_odom" args="0 0 0 0 0 0 1 base_link map 100"/> -->
+
+  <node pkg="tf" type="static_transform_publisher" name="sonar_to_base_link" args="0 0 0.2 0 0 0 base_link sonar_link 100" />
+  <node pkg="tf" type="static_transform_publisher" name="camera_tf" args="0 0 0.2 0 0 0 base_link camera_link 100" />
+
+
 
 
 
