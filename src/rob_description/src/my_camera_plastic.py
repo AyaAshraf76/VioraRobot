@@ -8,7 +8,7 @@ from cv_bridge import CvBridge
 from ultralytics import YOLO
 
 # Load YOLOv8 model
-model_path = r"/home/lenovo36/Downloads/archive_colab/archive/runs/detect/train9/weights/best.pt"
+model_path = r"/home/lenovo36/Downloads/spider_robot_dataset/spider_robot/SERP-Plastic-Bottles-1/runs/detect/train/weights/best.pt"
 model = YOLO(model_path)
 
 # Initialize ROS node
@@ -26,11 +26,11 @@ bridge = CvBridge()
 
 # Camera Info (Intrinsics for your camera)
 camera_info = CameraInfo()
-camera_info.width = 640  # Example resolution
-camera_info.height = 480  # Example resolution
-camera_info.K = [376.687, 0, 162.233, 0, 387.095, 115.588, 0, 0, 1]  # Example intrinsic matrix (fx, fy, cx, cy)
-camera_info.D = [0.1847, -0.0369, 0.005543, -0.003784, 0.0]  # Distortion coefficients (example)
-camera_info.P = [394.825, 0, 161.33, 0, 0, 405.69, 116.5638, 0, 0, 0, 1, 0]  # Projection matrix
+camera_info.width = 640  
+camera_info.height = 480 
+camera_info.K = [830.909684, 0, 340.863134 , 0, 8290426222 , 219.079834, 0, 0, 1]  # Example intrinsic matrix (fx, fy, cx, cy)
+camera_info.D = [-0.104999, 0.380679, 0.000263, 0.002204, 0.0]  # Distortion coefficients (example)
+camera_info.P = [828.797939, 0, 341.314389, 0, 0, 826.717688, 219.357316, 0, 0, 0, 1, 0]  # Projection matrix
 
 def run_object_detection():
     print("Object detection started...")
