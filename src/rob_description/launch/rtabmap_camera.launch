@@ -2,8 +2,11 @@
 
 <launch>
 
+  <include file="$(find moveit_robot_sim)/launch/robot_sim.launch" />
+
+
   <!-- Camera nodes -->
-  <node name="camera_publisher" pkg="rob_description" type="my_camera.py" output="screen"/>
+  <node name="camera_publisher" pkg="rob_description" type="my_camera_plastic.py" output="screen"/>
 
 
   <!-- Choose visualization -->
@@ -74,4 +77,11 @@
     <param name="camera_p2" type="double" value="-0.003784" />
     <param name="camera_k3" type="double" value="0.0" />
   </node>
+
+  <node pkg="tf" type="static_transform_publisher" name="map_to_odom" args="0 0 0 0 0 0 1 base_link map 100"/>
+
+  <node pkg="tf" type="static_transform_publisher" name="sonar_to_base_link" args="0 0 0.2 0 0 0 base_link sonar_link 100" />
+  <!-- <node pkg="tf" type="static_transform_publisher" name="camera_tf" args="0 0 0.2 0 0 0 base_link camera_link 100" /> -->
+
+
 </launch>

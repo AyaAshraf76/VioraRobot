@@ -5,15 +5,15 @@
   <include file="$(find moveit_robot_sim)/launch/robot_sim.launch" />
 
   <node name="ultrasonic_sensor" pkg="rob_description" type="ultrasonic_sensor.py" output="screen"/>
-  <node name="camera" pkg="rob_description" type="my_camera.py" output="screen"/>
+  <node name="camera" pkg="rob_description" type="my_camera_plastic.py" output="screen"/>
   <!-- <node name="camera_publisher" pkg="rob_description" type="camera_depth.py" output="screen"/> -->
 
 
 
   <!-- Run Arduino Node with rosserial -->
-  <node pkg="rosserial_arduino" type="serial_node.py" name="rosserial_arduino" output="screen">
+  <!-- <node pkg="rosserial_arduino" type="serial_node.py" name="rosserial_arduino" output="screen">
     <param name="port" value="/dev/ttyACM0"/>
-  </node>
+  </node> -->
 
   <!-- Choose visualization -->
   <arg name="rviz" default="true" />

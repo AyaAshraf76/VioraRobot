@@ -127,22 +127,22 @@ def main():
     #Wait for 2 seconds
     rospy.sleep(2)
     
-    #call the function to set the position to "zero_pose"
-    leg_1.set_pose("sit_pose_1")
-    #Wait for 2 seconds
-    rospy.sleep(1)
+    # #call the function to set the position to "zero_pose"
+    # leg_1.set_pose("sit_pose_1")
+    # #Wait for 2 seconds
+    # rospy.sleep(1)
 
-    leg_2.set_pose("sit_pose_2")
-    #Wait for 2 seconds
-    rospy.sleep(1)
+    # leg_2.set_pose("sit_pose_2")
+    # #Wait for 2 seconds
+    # rospy.sleep(1)
 
-    leg_3.set_pose("sit_pose_3")
-    #Wait for 2 seconds
-    rospy.sleep(1)
+    # leg_3.set_pose("sit_pose_3")
+    # #Wait for 2 seconds
+    # rospy.sleep(1)
 
-    leg_4.set_pose("sit_pose_4")
-    #Wait for 2 seconds
-    rospy.sleep(1)
+    # leg_4.set_pose("sit_pose_4")
+    # #Wait for 2 seconds
+    # rospy.sleep(1)
 
 
     leg_13.set_pose("zero_position_s1")
@@ -163,41 +163,41 @@ def main():
 
 
 
-    	# #Go to Lift Object Pose
-        # leg_1.set_pose("walking_leg_1_s1")
-        # rospy.sleep(2)
-
-        # #Open the gripper or end effector
-        # leg_234.set_pose("walking_leg_1_s2")
-        # rospy.sleep(2)  
-
-        # leg_3.set_pose("walking_leg_1_final")
-        # rospy.sleep(2) 
-
-        # #Close the gripper or end effector
-        # leg_2.set_pose("walking_leg_2_s1")
-        # rospy.sleep(2)
-
-        # #Open the gripper or end effector
-        # leg_134.set_pose("walking_leg_2_s2")
-        # rospy.sleep(2) 
-
-        
-        # #call the function to set the position to "zero_pose"
-        # leg_4.set_pose("walking_leg_2_final")
-    	# #Wait for 2 seconds
-        # rospy.sleep(2)
-
+    	#Go to Lift Object Pose
+        leg_1.set_pose("walking_leg_1_s1")
+        rospy.sleep(2)
 
         #Open the gripper or end effector
-        leg_13.set_pose("walk_1")
-        rospy.sleep(4) 
+        leg_234.set_pose("walking_leg_1_s2")
+        rospy.sleep(2)  
+
+        leg_3.set_pose("walking_leg_1_final")
+        rospy.sleep(2) 
+
+        #Close the gripper or end effector
+        leg_2.set_pose("walking_leg_2_s1")
+        rospy.sleep(2)
+
+        #Open the gripper or end effector
+        leg_134.set_pose("walking_leg_2_s2")
+        rospy.sleep(2) 
 
         
         #call the function to set the position to "zero_pose"
-        leg_24.set_pose("walk_2")
+        leg_4.set_pose("walking_leg_2_final")
     	#Wait for 2 seconds
-        rospy.sleep(4)
+        rospy.sleep(2)
+
+
+        # #Open the gripper or end effector
+        # leg_13.set_pose("walk_1")
+        # rospy.sleep(4) 
+
+        
+        # #call the function to set the position to "zero_pose"
+        # leg_24.set_pose("walk_2")
+    	# #Wait for 2 seconds
+        # rospy.sleep(4)
         
    
         

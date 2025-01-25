@@ -147,6 +147,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/lenovo36/project_ws/build/rosserial/rosserial_embeddedlinux/cmake_install.cmake")
   include("/home/lenovo36/project_ws/build/rosserial/rosserial_test/cmake_install.cmake")
   include("/home/lenovo36/project_ws/build/rosserial/rosserial_windows/cmake_install.cmake")
+  include("/home/lenovo36/project_ws/build/orb_slam_2_ros/cmake_install.cmake")
   include("/home/lenovo36/project_ws/build/rob_description/cmake_install.cmake")
 
 endif()

@@ -87,7 +87,7 @@
         <joint name="leg_2_3_joint" value="-0.3"/>
     </group_state>
     <group_state name="walking_leg_2_s2" group="leg_1_3_4_group">
-        <joint name="leg_1_1_joint" value="-0.3238"/>
+        <joint name="leg_1_1_joint" value="-0.458"/>
         <joint name="leg_1_2_joint" value="0"/>
         <joint name="leg_1_3_joint" value="-0.3"/>
         <joint name="leg_3_1_joint" value="0.9577"/>
@@ -135,7 +135,7 @@
         <joint name="leg_4_3_joint" value="0.3"/>
     </group_state>
     <group_state name="walking_leg_1_s2" group="leg_2_3_4_group">
-        <joint name="leg_2_1_joint" value="0.569"/>
+        <joint name="leg_2_1_joint" value="0.9345"/>
         <joint name="leg_2_2_joint" value="0"/>
         <joint name="leg_2_3_joint" value="0"/>
         <joint name="leg_3_1_joint" value="0.6384"/>
@@ -147,29 +147,13 @@
     </group_state>
     <group_state name="walking_leg_1_final" group="leg3_group">
         <joint name="leg_3_1_joint" value="0.6384"/>
-        <joint name="leg_3_2_joint" value="0"/>
+        <joint name="leg_3_2_joint" value="0.2738"/>
         <joint name="leg_3_3_joint" value="0.385"/>
     </group_state>
     <group_state name="walking_leg_2_final" group="leg4_group">
         <joint name="leg_4_1_joint" value="0"/>
-        <joint name="leg_4_2_joint" value="0"/>
+        <joint name="leg_4_2_joint" value="0.3632"/>
         <joint name="leg_4_3_joint" value="0.3"/>
-    </group_state>
-    <group_state name="walk_1" group="legs13_group">
-        <joint name="leg_1_1_joint" value="0.5769"/>
-        <joint name="leg_1_2_joint" value="0.2137"/>
-        <joint name="leg_1_3_joint" value="-0.4009"/>
-        <joint name="leg_3_1_joint" value="0.7923"/>
-        <joint name="leg_3_2_joint" value="0.1393"/>
-        <joint name="leg_3_3_joint" value="0.3301"/>
-    </group_state>
-    <group_state name="walk_2" group="legs24_group">
-        <joint name="leg_2_1_joint" value="-0.2077"/>
-        <joint name="leg_2_2_joint" value="0.4738"/>
-        <joint name="leg_2_3_joint" value="-0.6683"/>
-        <joint name="leg_4_1_joint" value="-0.6077"/>
-        <joint name="leg_4_2_joint" value="0.1582"/>
-        <joint name="leg_4_3_joint" value="0.3339"/>
     </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="gripper" parent_link="wrist_pitch_link" group="gripper"/>
@@ -217,7 +201,6 @@
     <disable_collisions link1="elbow_link" link2="wrist_link" reason="Adjacent"/>
     <disable_collisions link1="elbow_link" link2="wrist_pitch_link" reason="Never"/>
     <disable_collisions link1="gripper_link" link2="leg_1_1_link" reason="Never"/>
-    <disable_collisions link1="gripper_link" link2="leg_1_3_link" reason="Never"/>
     <disable_collisions link1="gripper_link" link2="leg_4_1_link" reason="Never"/>
     <disable_collisions link1="gripper_link" link2="leg_4_2_link" reason="Never"/>
     <disable_collisions link1="gripper_link" link2="shoulder_link" reason="Never"/>
@@ -303,6 +286,7 @@
     <disable_collisions link1="leg_4_1_link" link2="shoulder_link" reason="Never"/>
     <disable_collisions link1="leg_4_1_link" link2="waist_link" reason="Never"/>
     <disable_collisions link1="leg_4_1_link" link2="wrist_link" reason="Never"/>
+    <disable_collisions link1="leg_4_1_link" link2="wrist_pitch_link" reason="Never"/>
     <disable_collisions link1="leg_4_2_link" link2="leg_4_3_link" reason="Adjacent"/>
     <disable_collisions link1="leg_4_2_link" link2="robot_arm_base_link" reason="Never"/>
     <disable_collisions link1="leg_4_2_link" link2="shoulder_link" reason="Never"/>
