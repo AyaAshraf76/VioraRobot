@@ -1391,8 +1391,26 @@ qpoases_DIR:PATH=/home/lenovo36/project_ws/devel/share/qpoases/cmake
 //Value Computed by CMake
 qpoases_SOURCE_DIR:STATIC=/home/lenovo36/project_ws/src/pavlov_mini/qpoases
 
+//Value Computed by CMake
+quadruped_BINARY_DIR:STATIC=/home/lenovo36/project_ws/build/Reinforment-Implementation-on-a-Quadruped/quadruped
+
+//Value Computed by CMake
+quadruped_SOURCE_DIR:STATIC=/home/lenovo36/project_ws/src/Reinforment-Implementation-on-a-Quadruped/quadruped
+
+//Value Computed by CMake
+quadruped_imu_publisher_BINARY_DIR:STATIC=/home/lenovo36/project_ws/build/Reinforment-Implementation-on-a-Quadruped/quadruped_imu_and_servo/quadruped_imu_publisher
+
+//Value Computed by CMake
+quadruped_imu_publisher_SOURCE_DIR:STATIC=/home/lenovo36/project_ws/src/Reinforment-Implementation-on-a-Quadruped/quadruped_imu_and_servo/quadruped_imu_publisher
+
 //The directory containing a CMake configuration file for quadruped_model.
 quadruped_model_DIR:PATH=quadruped_model_DIR-NOTFOUND
+
+//Value Computed by CMake
+quadruped_servo_subscriber_BINARY_DIR:STATIC=/home/lenovo36/project_ws/build/Reinforment-Implementation-on-a-Quadruped/quadruped_imu_and_servo/quadruped_servo_subscriber
+
+//Value Computed by CMake
+quadruped_servo_subscriber_SOURCE_DIR:STATIC=/home/lenovo36/project_ws/src/Reinforment-Implementation-on-a-Quadruped/quadruped_imu_and_servo/quadruped_servo_subscriber
 
 //The directory containing a CMake configuration file for random_numbers.
 random_numbers_DIR:PATH=/opt/ros/noetic/share/random_numbers/cmake
@@ -1828,7 +1846,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=22
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=25
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

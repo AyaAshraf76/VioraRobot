@@ -59,14 +59,17 @@ def run_object_detection():
             detected_classes = detections.cls.numpy()  # Detected class IDs
             detected_confidences = detections.conf.numpy()  # Detection confidence
             
-            # Check if plastic is detected (class label 'Plastic')
+            # Check if plastic is detected with a confidence greater than 0.8
             plastic_detected = False
             for i, cls in enumerate(detected_classes):
                 label = detected_labels[int(cls)]  # Get the label of the detected object
-                if label == "Plastic":  # Matching "Plastic" class (case-sensitive)
-                    print("Plastic detected!")
+                confidence = detected_confidences[i]  # Confidence for this detection
+                
+                # Check if the label is "plastic" and confidence is greater than 0.8
+                if label == "plastic" and confidence > 0.75:
+                    print(f"Plastic detected with confidence: {confidence:.2f}")
                     plastic_detected = True
-                    break  # If plastic is detected, we stop checking further
+                    break  # If plastic is detected with sufficient confidence, stop further checks
 
             # Publish ROS message based on plastic detection
             plastic_detected_pub.publish(plastic_detected)

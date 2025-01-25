@@ -1,0 +1,8 @@
+prefix=/home/lenovo36/project_ws/devel
+
+Name: quadruped_imu_publisher
+Description: Description of quadruped_imu_publisher
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

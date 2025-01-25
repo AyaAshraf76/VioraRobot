@@ -127,22 +127,22 @@ def main():
     #Wait for 2 seconds
     rospy.sleep(2)
     
-    # #call the function to set the position to "zero_pose"
-    # leg_1.set_pose("sit_pose_1")
-    # #Wait for 2 seconds
-    # rospy.sleep(1)
+    #call the function to set the position to "zero_pose"
+    leg_1.set_pose("sit_pose_1")
+    #Wait for 2 seconds
+    rospy.sleep(1)
 
-    # leg_2.set_pose("sit_pose_2")
-    # #Wait for 2 seconds
-    # rospy.sleep(1)
+    leg_2.set_pose("sit_pose_2")
+    #Wait for 2 seconds
+    rospy.sleep(1)
 
-    # leg_3.set_pose("sit_pose_3")
-    # #Wait for 2 seconds
-    # rospy.sleep(1)
+    leg_3.set_pose("sit_pose_3")
+    #Wait for 2 seconds
+    rospy.sleep(1)
 
-    # leg_4.set_pose("sit_pose_4")
-    # #Wait for 2 seconds
-    # rospy.sleep(1)
+    leg_4.set_pose("sit_pose_4")
+    #Wait for 2 seconds
+    rospy.sleep(1)
 
 
     leg_13.set_pose("zero_position_s1")

@@ -55,6 +55,8 @@ CMAKE_BINARY_DIR = /home/lenovo36/project_ws/build
 # The main recursive "all" target.
 all: gtest/all
 all: moveit_robot_sim/all
+all: Reinforment-Implementation-on-a-Quadruped/quadruped_imu_and_servo/quadruped_imu_publisher/all
+all: Reinforment-Implementation-on-a-Quadruped/quadruped_imu_and_servo/quadruped_servo_subscriber/all
 all: rosserial/rosserial/all
 all: rosserial/rosserial_arduino/all
 all: rosserial/rosserial_chibios/all
@@ -66,6 +68,7 @@ all: rosserial/rosserial_vex_cortex/all
 all: rosserial/rosserial_vex_v5/all
 all: rosserial/rosserial_xbee/all
 all: rosserial/rosserial_client/all
+all: Reinforment-Implementation-on-a-Quadruped/quadruped/all
 all: rosserial/rosserial_server/all
 all: rosserial/rosserial_embeddedlinux/all
 all: rosserial/rosserial_test/all
@@ -78,6 +81,8 @@ all: rob_description/all
 # The main recursive "preinstall" target.
 preinstall: gtest/preinstall
 preinstall: moveit_robot_sim/preinstall
+preinstall: Reinforment-Implementation-on-a-Quadruped/quadruped_imu_and_servo/quadruped_imu_publisher/preinstall
+preinstall: Reinforment-Implementation-on-a-Quadruped/quadruped_imu_and_servo/quadruped_servo_subscriber/preinstall
 preinstall: rosserial/rosserial/preinstall
 preinstall: rosserial/rosserial_arduino/preinstall
 preinstall: rosserial/rosserial_chibios/preinstall
@@ -89,6 +94,7 @@ preinstall: rosserial/rosserial_vex_cortex/preinstall
 preinstall: rosserial/rosserial_vex_v5/preinstall
 preinstall: rosserial/rosserial_xbee/preinstall
 preinstall: rosserial/rosserial_client/preinstall
+preinstall: Reinforment-Implementation-on-a-Quadruped/quadruped/preinstall
 preinstall: rosserial/rosserial_server/preinstall
 preinstall: rosserial/rosserial_embeddedlinux/preinstall
 preinstall: rosserial/rosserial_test/preinstall
@@ -106,6 +112,8 @@ clean: CMakeFiles/tests.dir/clean
 clean: CMakeFiles/download_extra_data.dir/clean
 clean: gtest/clean
 clean: moveit_robot_sim/clean
+clean: Reinforment-Implementation-on-a-Quadruped/quadruped_imu_and_servo/quadruped_imu_publisher/clean
+clean: Reinforment-Implementation-on-a-Quadruped/quadruped_imu_and_servo/quadruped_servo_subscriber/clean
 clean: rosserial/rosserial/clean
 clean: rosserial/rosserial_arduino/clean
 clean: rosserial/rosserial_chibios/clean
@@ -117,6 +125,7 @@ clean: rosserial/rosserial_vex_cortex/clean
 clean: rosserial/rosserial_vex_v5/clean
 clean: rosserial/rosserial_xbee/clean
 clean: rosserial/rosserial_client/clean
+clean: Reinforment-Implementation-on-a-Quadruped/quadruped/clean
 clean: rosserial/rosserial_server/clean
 clean: rosserial/rosserial_embeddedlinux/clean
 clean: rosserial/rosserial_test/clean
@@ -125,6 +134,60 @@ clean: orb_slam_2_ros/clean
 clean: rob_description/clean
 
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory Reinforment-Implementation-on-a-Quadruped/quadruped
+
+# Recursive "all" directory target.
+Reinforment-Implementation-on-a-Quadruped/quadruped/all:
+
+.PHONY : Reinforment-Implementation-on-a-Quadruped/quadruped/all
+
+# Recursive "preinstall" directory target.
+Reinforment-Implementation-on-a-Quadruped/quadruped/preinstall:
+
+.PHONY : Reinforment-Implementation-on-a-Quadruped/quadruped/preinstall
+
+# Recursive "clean" directory target.
+Reinforment-Implementation-on-a-Quadruped/quadruped/clean:
+
+.PHONY : Reinforment-Implementation-on-a-Quadruped/quadruped/clean
+
+#=============================================================================
+# Directory level rules for directory Reinforment-Implementation-on-a-Quadruped/quadruped_imu_and_servo/quadruped_imu_publisher
+
+# Recursive "all" directory target.
+Reinforment-Implementation-on-a-Quadruped/quadruped_imu_and_servo/quadruped_imu_publisher/all:
+
+.PHONY : Reinforment-Implementation-on-a-Quadruped/quadruped_imu_and_servo/quadruped_imu_publisher/all
+
+# Recursive "preinstall" directory target.
+Reinforment-Implementation-on-a-Quadruped/quadruped_imu_and_servo/quadruped_imu_publisher/preinstall:
+
+.PHONY : Reinforment-Implementation-on-a-Quadruped/quadruped_imu_and_servo/quadruped_imu_publisher/preinstall
+
+# Recursive "clean" directory target.
+Reinforment-Implementation-on-a-Quadruped/quadruped_imu_and_servo/quadruped_imu_publisher/clean:
+
+.PHONY : Reinforment-Implementation-on-a-Quadruped/quadruped_imu_and_servo/quadruped_imu_publisher/clean
+
+#=============================================================================
+# Directory level rules for directory Reinforment-Implementation-on-a-Quadruped/quadruped_imu_and_servo/quadruped_servo_subscriber
+
+# Recursive "all" directory target.
+Reinforment-Implementation-on-a-Quadruped/quadruped_imu_and_servo/quadruped_servo_subscriber/all:
+
+.PHONY : Reinforment-Implementation-on-a-Quadruped/quadruped_imu_and_servo/quadruped_servo_subscriber/all
+
+# Recursive "preinstall" directory target.
+Reinforment-Implementation-on-a-Quadruped/quadruped_imu_and_servo/quadruped_servo_subscriber/preinstall:
+
+.PHONY : Reinforment-Implementation-on-a-Quadruped/quadruped_imu_and_servo/quadruped_servo_subscriber/preinstall
+
+# Recursive "clean" directory target.
+Reinforment-Implementation-on-a-Quadruped/quadruped_imu_and_servo/quadruped_servo_subscriber/clean:
+
+.PHONY : Reinforment-Implementation-on-a-Quadruped/quadruped_imu_and_servo/quadruped_servo_subscriber/clean
 
 #=============================================================================
 # Directory level rules for directory gtest
