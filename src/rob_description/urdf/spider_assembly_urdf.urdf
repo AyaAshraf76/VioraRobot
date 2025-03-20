@@ -468,7 +468,7 @@
     <parent link="robot_arm_base_link" />
     <child link="waist_link" />
     <axis xyz="0 0 1" />
-    <limit lower="-0.6" upper="2.54" effort="5" velocity="3" />
+    <limit lower="-0.6" upper="2.7302" effort="5" velocity="3" />
   </joint>
   <link name="shoulder_link">
     <inertial>
