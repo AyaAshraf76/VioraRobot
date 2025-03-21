@@ -17,7 +17,6 @@ For **object detection**, the system incorporates **YOLOv11**, a state-of-the-ar
 - **Plastic bottle detection using YOLOv11** with real-time vision processing.  
 - **SLAM implementation for mapping and navigation**.  
 - **Leg movement follows a "crawl gait" pattern** to maintain stability and efficiency.  
-- **Successfully tested in a real-world environment**.  
 
 ---  
 
