@@ -5,7 +5,7 @@
   <arg name="paused" default="false" doc="Start Gazebo paused"/>
   <arg name="world_name" default="worlds/empty.world" doc="Gazebo world file"/>
   <arg name="world_pose" default="-x 0 -y 0 -z 0 -R 0 -P 0 -Y 0" doc="Pose to spawn the robot at"/>
-  <arg name="initial_joint_positions" default=" -J elbow_joint 0.68 -J gripper_joint -0.75 -J leg_1_1_joint -0.458 -J leg_1_2_joint 0 -J leg_1_3_joint -0.3 -J leg_2_1_joint 0.9345 -J leg_2_2_joint 0 -J leg_2_3_joint 0 -J leg_3_1_joint 0.9577 -J leg_3_2_joint 0 -J leg_3_3_joint 0.385 -J leg_4_1_joint -0.3377 -J leg_4_2_joint 0 -J leg_4_3_joint 0 -J shoulder_joint 0.8 -J waist_joint -0.6 -J wrist_joint 0 -J wrist_pitch_joint 0.1" doc="Initial joint configuration of the robot"/>
+  <arg name="initial_joint_positions" default=" -J elbow_joint 0.8092 -J gripper_joint -0.75 -J leg_1_1_joint -0.458 -J leg_1_2_joint 0 -J leg_1_3_joint -0.3 -J leg_2_1_joint 0.9345 -J leg_2_2_joint 0 -J leg_2_3_joint 0 -J leg_3_1_joint 0.9577 -J leg_3_2_joint 0 -J leg_3_3_joint 0.385 -J leg_4_1_joint -0.3377 -J leg_4_2_joint 0 -J leg_4_3_joint 0 -J shoulder_joint 0.4016 -J waist_joint -0.6 -J wrist_joint 0 -J wrist_pitch_joint 0.1" doc="Initial joint configuration of the robot"/>
 
   <!-- Start Gazebo paused to allow the controllers to pickup the initial pose -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch" pass_all_args="true">
@@ -24,7 +24,7 @@
 
   <!-- Load the controller parameters onto the parameter server -->
   <rosparam file="$(find moveit_robot_sim)/config/gazebo_controllers.yaml" />
-  <include file="$(dirname)/new_ros_controllers.launch"/>
+  <include file="$(dirname)/ros_controllers.launch"/>
 
   <!-- Spawn the Gazebo ROS controllers -->
   <node name="gazebo_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller" />
