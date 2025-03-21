@@ -44,21 +44,21 @@ ros::Subscriber<std_msgs::Float32MultiArray> joint_angles_sub("/robot/joint_angl
 
 void setup() {
   // Initialize servos on appropriate pins (change pins as needed for your STM32 board)
-  leg1_servo1.attach(PA9);  // Servo 1 for leg 1
-  leg1_servo2.attach(PA10); // Servo 2 for leg 1
-  leg1_servo3.attach(PA11); // Servo 3 for leg 1
+  leg1_servo1.attach(PB5);  // Servo 1 for leg 1
+  leg1_servo2.attach(PB4); // Servo 2 for leg 1
+  leg1_servo3.attach(PB3); // Servo 3 for leg 1
 
-  leg2_servo1.attach(PA12); // Servo 1 for leg 2
-  leg2_servo2.attach(PA13); // Servo 2 for leg 2
-  leg2_servo3.attach(PA14); // Servo 3 for leg 2
+  leg2_servo1.attach(PB8); // Servo 1 for leg 2
+  leg2_servo2.attach(PA7); // Servo 2 for leg 2
+  leg2_servo3.attach(PA6); // Servo 3 for leg 2
 
-  leg3_servo1.attach(PB0);  // Servo 1 for leg 3
-  leg3_servo2.attach(PB1);  // Servo 2 for leg 3
-  leg3_servo3.attach(PB2);  // Servo 3 for leg 3
+  leg3_servo1.attach(PA0);  // Servo 1 for leg 3
+  leg3_servo2.attach(PA3);  // Servo 2 for leg 3
+  leg3_servo3.attach(PA5);  // Servo 3 for leg 3
 
-  leg4_servo1.attach(PB3);  // Servo 1 for leg 4
-  leg4_servo2.attach(PB4);  // Servo 2 for leg 4
-  leg4_servo3.attach(PB5);  // Servo 3 for leg 4
+  leg4_servo1.attach(PA2);  // Servo 1 for leg 4
+  leg4_servo2.attach(PA1);  // Servo 2 for leg 4
+  leg4_servo3.attach(PA4);  // Servo 3 for leg 4
 
   // Start the ROS communication
   nh.initNode();
