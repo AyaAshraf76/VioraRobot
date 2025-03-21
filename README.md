@@ -1,5 +1,4 @@
-# VioraRobot
-# **Quadruped Robot for Plastic Bottle Collection**
+# **Viora Quadruped Robot for Plastic Bottle Collection**
 
 ## **Overview**  
 This repository contains the software, simulation, and motion planning framework for a **quadruped robotic system** designed to collect plastic bottles. The robot integrates **MoveIt!**, **PID control**, and **Gazebo simulation** to achieve stable movement and precise object collection.  
