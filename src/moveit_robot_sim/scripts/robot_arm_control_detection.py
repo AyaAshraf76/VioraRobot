@@ -99,7 +99,7 @@ class MyRobot:
         rospy.loginfo('\033[32m' + "Now at Pose: {}".format(arg_pose_name) + '\033[0m')
 
         if arg_pose_name == "place_object":
-            rospy.sleep(5)  #Adding delay for the grip to open
+            # rospy.sleep(5)  #Adding delay for the grip to open
             self.stop_publishing = True 
             rospy.loginfo("Gripper is open, stopping joint publishing.")
         else:
@@ -107,8 +107,8 @@ class MyRobot:
 
 
     def plastic_detected_callback(self, msg):
-        # This callback sets the detection flag when a bottle is detected
-        if msg.data:  # If the message indicates plastic is detected
+        # Callback function for detecting plastic bottles
+        if msg.data: 
             self.plastic_detected = True
             self.stop_publishing = False  # Reset to False when a new bottle is detected
         else:
@@ -117,7 +117,6 @@ class MyRobot:
 
     # Class Destructor
     def __del__(self):
-        #When the actions are finished, shut down the moveit commander
         moveit_commander.roscpp_shutdown()
         rospy.loginfo(
             '\033[95m' + "Object of class MyRobot Deleted." + '\033[0m')
@@ -134,16 +133,13 @@ def main():
 
     
     
-    #Here, we will repeat the cycle of setting to various positions, simulating the pick and place action
     while not rospy.is_shutdown():
+
         if arm.plastic_detected or not arm.stop_publishing: 
             
-            #call the function to set the position to "zero_pose"
             arm.set_pose("zero_position_arm")
-            #Wait for 2 seconds
             rospy.sleep(1)
     
-    #Open the gripper or end effector
             gripper.set_pose("grip_closed")
             rospy.sleep(1)
 

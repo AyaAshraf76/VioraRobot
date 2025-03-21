@@ -7,7 +7,13 @@
 
   <!-- Camera nodes -->
   <node name="camera_publisher" pkg="rob_description" type="my_camera_plastic.py" output="screen"/>
+  <node name="robot_arm_moveit" pkg="moveit_robot_sim" type="robot_arm_control_detection.py" output="screen"/>
+  <node name="robot_arm_publisher" pkg="moveit_robot_sim" type="arm_publisher.py" output="screen"/>
 
+  <!-- Run Arduino Node with rosserial -->
+  <node pkg="rosserial_arduino" type="serial_node.py" name="rosserial_arduino" output="screen">
+    <param name="port" value="/dev/ttyACM0"/>
+  </node>
 
   <!-- Choose visualization -->
   <arg name="rviz" default="true" />
@@ -25,9 +31,9 @@
   </node>
 
   <!-- Static transforms (camera to base link, etc.) -->
-  <!-- <node pkg="tf" type="static_transform_publisher" name="sonar_to_base_link" args="0 0 0.2 0 0 0 base_link sonar_link 100" /> -->
+  <node pkg="tf" type="static_transform_publisher" name="sonar_to_base_link" args="0 0 0.2 0 0 0 base_link sonar_link 100" />
   <node pkg="tf" type="static_transform_publisher" name="camera_tf" args="0 0 0.2 0 0 0 base_link camera_link 100" />
-  <!-- <node pkg="tf" type="static_transform_publisher" name="camera_tf2" args="0 0 0.2 0 0 0 base_link map 100" /> -->
+  <node pkg="tf" type="static_transform_publisher" name="camera_tf2" args="0 0 0.2 0 0 0 base_link map 100" />
 
 
 
@@ -56,31 +62,31 @@
     <param name="/ORBextractor/iniThFAST" type="int" value="20" />
     <param name="/ORBextractor/minThFAST" type="int" value="7" />
 
-    <!-- Camera parameters -->
-    <!-- Camera frames per second -->
+    <!-- Camera parameters
+    Camera frames per second -->
     <param name="camera_fps" type="int" value="30" />
     <!-- Color order of the images (0: BGR, 1: RGB. It is ignored if images are grayscale) -->
     <param name="camera_rgb_encoding" type="bool" value="true" />
 
     <!-- Camera calibration parameters -->
-    <!--If the node should wait for a camera_info topic to take the camera calibration data-->
+    <!-- If the node should wait for a camera_info topic to take the camera calibration data -->
     <param name="load_calibration_from_cam" type="bool" value="false" />
     <!-- Camera calibration and distortion parameters (OpenCV) -->
-    <param name="camera_fx" type="double" value="376.686869" />
-    <param name="camera_fy" type="double" value="387.095333" />
-    <param name="camera_cx" type="double" value="162.0232764" />
-    <param name="camera_cy" type="double" value="115.0588380" />
+    <param name="camera_fx" type="double" value="830.909684" />
+    <param name="camera_fy" type="double" value="340.863134" />
+    <param name="camera_cx" type="double" value="829.426222" />
+    <param name="camera_cy" type="double" value="219.079834" />
     <!-- Camera calibration and distortion parameters (OpenCV) -->
-    <param name="camera_k1" type="double" value="0.184715" />
-    <param name="camera_k2" type="double" value="0.036941" />
-    <param name="camera_p1" type="double" value="0.005543" />
-    <param name="camera_p2" type="double" value="-0.003784" />
+    <param name="camera_k1" type="double" value="-0.104999" />
+    <param name="camera_k2" type="double" value="0.380679" />
+    <param name="camera_p1" type="double" value="0.000263" />
+    <param name="camera_p2" type="double" value="0.002204" />
     <param name="camera_k3" type="double" value="0.0" />
   </node>
 
-  <node pkg="tf" type="static_transform_publisher" name="map_to_odom" args="0 0 0 0 0 0 1 base_link map 100"/>
+  <!-- <node pkg="tf" type="static_transform_publisher" name="map_to_odom" args="0 0 0 0 0 0 1 base_link map 100"/> -->
 
-  <node pkg="tf" type="static_transform_publisher" name="sonar_to_base_link" args="0 0 0.2 0 0 0 base_link sonar_link 100" />
+  <!-- <node pkg="tf" type="static_transform_publisher" name="sonar_to_base_link" args="0 0 0.2 0 0 0 base_link sonar_link 100" /> -->
   <!-- <node pkg="tf" type="static_transform_publisher" name="camera_tf" args="0 0 0.2 0 0 0 base_link camera_link 100" /> -->
 
 

@@ -4,8 +4,7 @@
 
   <include file="$(find moveit_robot_sim)/launch/robot_sim.launch" />
 
-  <node name="ultrasonic_sensor" pkg="rob_description" type="ultrasonic_sensor.py" output="screen"/>
-  <node name="camera" pkg="rob_description" type="my_camera_plastic.py" output="screen"/>
+  <node name="camera" pkg="rob_description" type="my_camera_publisher.py" output="screen"/>
   <!-- <node name="camera_publisher" pkg="rob_description" type="camera_depth.py" output="screen"/> -->
 
 
@@ -14,6 +13,9 @@
   <!-- <node pkg="rosserial_arduino" type="serial_node.py" name="rosserial_arduino" output="screen">
     <param name="port" value="/dev/ttyACM0"/>
   </node> -->
+
+  <!-- <node name="ultrasonic_sensor" pkg="rob_description" type="ultrasonic_sensor.py" output="screen"/> -->
+
 
   <!-- Choose visualization -->
   <arg name="rviz" default="true" />
@@ -29,7 +31,7 @@
   <!-- Remap camera topics for ESP32-CAM -->
   <remap from="rgb/image" to="/camera/rgb/image_raw"/>
   <!-- <remap from="rgb/camera_info" to="/camera/camera_info"/> -->
-  <remap from="/rtabmap/scan" to="/ultrasonic/laser_scan"/>
+  <remap from="rtabmap/scan" to="/sonar_laser"/>
   <!-- <remap from="camera/depth/image_raw" to="/camera/depth/image_raw"/> -->
   <!-- Add depth topic remapping -->
 
@@ -86,7 +88,7 @@
       <param name="RGBD/CreateOccupancyGrid" value="true"/>
       <param name="Grid/FromDepth" value="false"/>
 
-            <!-- localization mode -->
+      <!-- localization mode -->
       <param if="$(arg localization)" name="Mem/IncrementalMemory" type="string" value="false"/>
       <param unless="$(arg localization)" name="Mem/IncrementalMemory" type="string" value="true"/>
       <param name="Mem/InitWMWithAllNodes" type="string" value="$(arg localization)"/>
